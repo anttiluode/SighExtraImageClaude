@@ -24,15 +24,19 @@ def _smooth_profile(profile: torch.Tensor, sigma: float) -> torch.Tensor:
     return p[0].transpose(0, 1)
 
 
-def extract_boundary_signal(
+def extract_boundary_profile(
     image: torch.Tensor,
     region: BoundaryRegion,
     *,
     n_measure: int,
     smooth_sigma: float,
-    mode: str = "log_lowpass",
+    rows=None,
 ) -> torch.Tensor:
-    """Estimate the smooth illumination profile along a selected visible strip."""
+    """Smooth linear-light profile along the strip, with no baseline removed.
+
+    ``rows`` optionally restricts the row average to a subset of absolute image
+    rows inside the region (used for split-half noise estimates).
+    """
     if image.ndim == 4:
         if image.shape[0] != 1:
             raise ValueError("one image at a time")
@@ -42,12 +46,29 @@ def extract_boundary_signal(
     patch = srgb_to_linear(image[:, region.y0:region.y1, region.x0:region.x1])
     if patch.numel() == 0:
         raise ValueError("empty boundary region")
-    if mode != "log_lowpass":
-        raise ValueError(f"unknown extraction mode: {mode}")
+    if rows is not None:
+        idx = torch.as_tensor(list(rows), dtype=torch.long) - region.y0
+        if idx.numel() == 0 or int(idx.min()) < 0 or int(idx.max()) >= patch.shape[1]:
+            raise ValueError("rows must lie inside the boundary region")
+        patch = patch[:, idx, :]
     # Geometric row average suppresses multiplicative texture; preserve x structure.
     profile = torch.exp(torch.log(patch.clamp_min(1e-5)).mean(dim=1)).transpose(0, 1)  # [W,3]
     profile = F.interpolate(profile.transpose(0, 1).unsqueeze(0), size=n_measure, mode="linear", align_corners=True)[0].transpose(0, 1)
-    profile = _smooth_profile(profile, smooth_sigma)
+    return _smooth_profile(profile, smooth_sigma)
+
+
+def extract_boundary_signal(
+    image: torch.Tensor,
+    region: BoundaryRegion,
+    *,
+    n_measure: int,
+    smooth_sigma: float,
+    mode: str = "log_lowpass",
+) -> torch.Tensor:
+    """Estimate the smooth illumination profile along a selected visible strip."""
+    profile = extract_boundary_profile(image, region, n_measure=n_measure, smooth_sigma=smooth_sigma)
+    if mode != "log_lowpass":
+        raise ValueError(f"unknown extraction mode: {mode}")
     # Remove unknown DC floor/channel albedo while retaining positive leakage shape.
     baseline = torch.quantile(profile, 0.08, dim=0, keepdim=True)
     signal = (profile - baseline).clamp_min(0.0)

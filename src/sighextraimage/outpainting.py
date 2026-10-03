@@ -156,6 +156,10 @@ class CoarseLightConstraint:
         return self.residual(predicted)
 
 
+class _GuidanceRefused(Exception):
+    """The geometry funnel found no usable corner evidence in the selected boundary."""
+
+
 @dataclass
 class OutpaintComparison:
     prior: np.ndarray
@@ -193,10 +197,27 @@ def generate_outpaintings(image, photo_config: PhotoConfig, config: OutpaintConf
     if config.light_guidance:
         try:
             photo = prepare_photo(image, replace(photo_config, max_side=config.max_side))
+            from .geometry_funnel import DEFAULT_HYPOTHESIS, funnel_from_image, hypothesis_survives
+            funnel, raw_profile = funnel_from_image(photo.image_chw, photo.region,
+                n_measure=photo_config.n_measure, smooth_sigma=photo_config.smooth_sigma)
+            diagnostics["geometry_status"] = funnel.status
+            diagnostics["geometry_verdict"] = funnel.verdict
+            diagnostics["geometry_temperature"] = funnel.temperature
+            if funnel.status in ("refuted-model", "no-signal"):
+                raise _GuidanceRefused(funnel.verdict)
+            geometry = DEFAULT_HYPOTHESIS
+            if not hypothesis_survives(raw_profile, funnel.noise, geometry, funnel):
+                geometry = funnel.best
+                warnings.append("The photo refutes the default corner geometry; guidance uses the "
+                                "best-fitting surviving geometry instead.")
+            if funnel.status == "undecided-geometry":
+                warnings.append("The photo does not decide the corner geometry, so where hidden light "
+                                "sources sit along the extension is an assumption, not a measurement. "
+                                f"{len(funnel.survivors)} geometries explain this boundary equally well.")
+            diagnostics["geometry_used"] = geometry.as_dict()
             y = extract_boundary_signal(photo.image_chw, photo.region,
                 n_measure=photo_config.n_measure, smooth_sigma=photo_config.smooth_sigma)
-            transport = CornerTransport(TransportConfig(
-                n_measure=photo_config.n_measure, n_angle=photo_config.n_measure))
+            transport = geometry.transport(photo_config.n_measure, photo_config.n_measure)
             constraint = CoarseLightConstraint.from_measurement(y, transport)
             diagnostics["retained_light_modes"] = constraint.retained_modes
             diagnostics["light_note"] = constraint.reason
@@ -216,6 +237,9 @@ def generate_outpaintings(image, photo_config: PhotoConfig, config: OutpaintConf
             else:
                 status = "skipped"
                 warnings.append(constraint.reason if not constraint.allowed else "Light guidance strength is zero.")
+        except _GuidanceRefused as refusal:
+            status = "skipped"
+            warnings.append(str(refusal))
         except Exception as exc:
             status = "failed"
             warnings.append(f"Light guidance failed; the prior extension is retained: {exc}")

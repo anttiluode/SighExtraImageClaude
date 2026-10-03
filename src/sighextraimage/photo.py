@@ -46,6 +46,9 @@ class PhotoInspection:
     warnings: list[str]
     likelihood_mode: str
     evidence_note: str
+    geometry_status: str = ""
+    geometry_verdict: str = ""
+    geometry_summary: dict | None = None
 
 
 def _as_rgb_uint8(image) -> np.ndarray:
@@ -113,6 +116,15 @@ def prepare_photo(image, config: PhotoConfig) -> PreparedPhoto:
     return PreparedPhoto(chw, region, overlay, (oh, ow))
 
 
+def funnel_photo(image, config: PhotoConfig):
+    """Run the corner-geometry funnel on the selected boundary of a photograph."""
+    from .geometry_funnel import funnel_from_image
+    prepared = prepare_photo(image, config)
+    result, _ = funnel_from_image(prepared.image_chw, prepared.region,
+                                  n_measure=config.n_measure, smooth_sigma=config.smooth_sigma)
+    return result
+
+
 def inspect_photo(image, config: PhotoConfig, likelihood_mode: str = "affine") -> PhotoInspection:
     prepared = prepare_photo(image, config)
     profile_t = extract_boundary_signal(
@@ -140,6 +152,17 @@ def inspect_photo(image, config: PhotoConfig, likelihood_mode: str = "affine") -
     if transport.condition_number() > 1e8:
         warnings.append("The selected corner model is strongly ill-conditioned; inverse structure is highly uncertain.")
     chroma = profile_t / profile_t.sum(dim=1, keepdim=True).clamp_min(1e-8)
+    geometry_status, geometry_verdict, geometry_summary = "", "", None
+    try:
+        from .geometry_funnel import funnel_from_image
+        funnel, _ = funnel_from_image(prepared.image_chw, prepared.region,
+                                      n_measure=config.n_measure, smooth_sigma=config.smooth_sigma)
+        geometry_status, geometry_verdict = funnel.status, funnel.verdict
+        geometry_summary = funnel.summary()
+        if funnel.status in ("refuted-model", "no-signal"):
+            warnings.append(funnel.verdict)
+    except Exception as exc:  # the funnel is diagnostic; inspection must still work
+        geometry_status, geometry_verdict = "error", f"Geometry funnel failed: {exc}"
     return PhotoInspection(
         overlay_hwc=prepared.overlay_hwc,
         profile=profile_t.detach().cpu().numpy(),
@@ -154,4 +177,7 @@ def inspect_photo(image, config: PhotoConfig, likelihood_mode: str = "affine") -
             "This panel reports extracted boundary evidence and a model-dependent physics-only inverse. "
             "It does not reveal a unique hidden scene."
         ),
+        geometry_status=geometry_status,
+        geometry_verdict=geometry_verdict,
+        geometry_summary=geometry_summary,
     )

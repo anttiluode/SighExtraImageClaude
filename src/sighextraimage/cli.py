@@ -22,6 +22,15 @@ def build_parser() -> argparse.ArgumentParser:
     bench.add_argument("--residual-mode", choices=["l2", "affine", "affine_per_channel"], default="affine")
     bench.add_argument("--output", default="results/receipts/gates-0-1-v0.json")
     bench.add_argument("--tv-iters", type=int, default=250)
+    g2 = sub.add_parser("gate2", help="Corner-geometry funnel + calibrated temperature (preregistered)")
+    g2.add_argument("--seeds", type=int, nargs="+", default=None)
+    g2.add_argument("--output", default="results/receipts/gate2-v0.json")
+    funnel = sub.add_parser("funnel", help="What one photo's boundary decides about the corner geometry")
+    funnel.add_argument("image")
+    funnel.add_argument("--edge", choices=["right", "left", "top", "bottom"], default="right")
+    funnel.add_argument("--region", type=float, nargs=4, default=None, metavar=("X0", "Y0", "X1", "Y1"),
+                        help="boundary region as image fractions")
+    funnel.add_argument("--output", default=None, help="write the funnel receipt as JSON")
     outpaint = sub.add_parser("outpaint",help="Generate an image extension outside the photograph")
     outpaint.add_argument("image")
     outpaint.add_argument("--output",required=True,help="Output PNG path")
@@ -57,6 +66,29 @@ def main(argv: list[str] | None = None) -> int:
             tv_iters=args.tv_iters,
         )
         print(f"wrote {args.output}")
+        return 0
+    if args.command == "gate2":
+        from .gate2 import HELD_OUT_SEEDS, run_gate2
+        receipt = run_gate2(args.seeds or HELD_OUT_SEEDS, output=Path(args.output))
+        for name, g in receipt["result"]["gates"].items():
+            print(f"{name}: {g['observed']} (required {g['required']}) -> {'pass' if g['pass'] else 'FAIL'}")
+        print(f"Gate 2 {'PASSED' if receipt['result']['passed'] else 'FAILED'}; wrote {args.output}")
+        return 0
+    if args.command == "funnel":
+        import json
+        from PIL import Image
+        from .photo import PhotoConfig, funnel_photo
+        cfg = PhotoConfig(edge=args.edge) if args.region is None else PhotoConfig(edge=args.edge, region_fraction=tuple(args.region))
+        with Image.open(args.image) as image:
+            result = funnel_photo(image.convert("RGB"), cfg)
+        print(result.verdict)
+        for row in result.ledger:
+            print(f"  level {row['level']}: tested {row['tested']}, refuted {row['refuted']}, "
+                  f"best reduced chi2 {row['birge']:.2f}")
+        if args.output:
+            from .receipts import write_receipt
+            write_receipt(result.summary(), Path(args.output))
+            print(f"wrote {args.output}")
         return 0
     if args.command == "outpaint":
         from PIL import Image
