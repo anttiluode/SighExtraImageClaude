@@ -2,6 +2,22 @@
 
 This is a fork of [anttiluode/SighExtraImage](https://github.com/anttiluode/SighExtraImage) (imported at `099d605`). It asks one more question of the photo: **before using the boundary light, does the photo actually tell us the corner geometry?** The idea comes from [Varjoluotain](https://github.com/anttiluode/Varjoluotain)'s occluder funnel: treat each geometry as a hypothesis, refute what the photo rules out, and pay for detail only where it can't decide.
 
+## Gate 3 — locating the corner from the light on the floor
+
+![Corner located from floor light](results/fan/report71.png)
+
+Gate 2 showed that a 1-D boundary strip can't decide the corner geometry. Gate 3 moves to 2-D. On the floor beside a wall edge, light from the hidden side forms a fan of rays from the corner (the corner camera, Bouman et al. 2017). A camera maps the floor to the image by a homography, which keeps lines straight. So the rays stay lines through one image point, and the corner is found by a 2-parameter funnel **with no camera calibration**. `sighextraimage fan photo.jpg --report out.png` runs it on a photo.
+
+**Result: fails on 2 of 5 preregistered criteria; the core works.** Write-up: [`results/gate3-v0.md`](results/gate3-v0.md).
+
+- **Located when the photo can decide it.** With two or more distinct shadow edges, the corner was located within 8 px in 6/7 held-out scenes (median 5.1 px on 256 px), with the hidden side right in 8/8 located verdicts.
+- **No false alarms:** 0/16 empty scenes.
+- **The hidden scene comes back as a hidden-angle panorama** (the coloured bins in the strip above).
+- **Fails 1:** with one shadow edge, the corner is only on a line. The reported line was within 16 px of the corner in only 3/9 scenes.
+- **Fails 2:** two single-edge scenes were confidently wrong (238–282 px), one from search pruning and one from the radial model. The fix is to certify a "located" verdict by probing before claiming it.
+
+---
+
 **Gate 2 result: fails narrowly** (2 of 4 preregistered criteria). Full write-up: [`results/gate2-v0.md`](results/gate2-v0.md).
 
 What this version established:

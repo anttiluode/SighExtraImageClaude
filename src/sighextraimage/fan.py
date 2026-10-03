@@ -487,11 +487,14 @@ def load_photo(path: str, max_side: int = 256, region=None):
     return arr, np.ones(arr.shape[:2], bool)
 
 
-def report_image(image_srgb: np.ndarray, result: FanResult, scale: int = 2):
+def report_image(image_srgb: np.ndarray, result: FanResult, scale: int = 2, truth_apex=None):
     """Annotated report: photo with surviving corners (or line), residue map, hidden-angle panorama."""
     from PIL import Image, ImageDraw
     hgt, wid = image_srgb.shape[:2]
-    pad = wid
+    # pad just enough to show the surviving apexes (capped at one image size)
+    pts = np.array([[h.apex_x, h.apex_y] for h in result.survivors] + [[0, 0], [wid, hgt]])
+    need = max(0.0, -pts.min(), (pts[:, 0] - wid).max(), (pts[:, 1] - hgt).max())
+    pad = int(min(wid, need + 24))
     canvas = Image.new("RGB", ((wid + 2 * pad) * scale, (hgt + 2 * pad) * scale + 70 * scale), (24, 24, 28))
     photo = Image.fromarray((np.clip(image_srgb, 0, 1) * 255).astype(np.uint8)).resize((wid * scale, hgt * scale))
     canvas.paste(photo, (pad * scale, pad * scale))
@@ -503,6 +506,10 @@ def report_image(image_srgb: np.ndarray, result: FanResult, scale: int = 2):
     if result.status in ("on-a-line", "undecided"):
         p0 = result.line_point - result.line_dir * 3 * wid; p1 = result.line_point + result.line_dir * 3 * wid
         d.line([to(*p0), to(*p1)], fill=(255, 120, 60), width=scale)
+    if truth_apex is not None:
+        tx, ty = to(*truth_apex)
+        d.line([tx - 10, ty, tx + 10, ty], fill=(80, 255, 120), width=2)
+        d.line([tx, ty - 10, tx, ty + 10], fill=(80, 255, 120), width=2)
     bx, by = to(result.best.apex_x, result.best.apex_y)
     d.ellipse([bx - 6, by - 6, bx + 6, by + 6], outline=(255, 60, 60), width=2)
     if result.residue is not None:
