@@ -1,0 +1,4344 @@
+{
+  "config": {
+    "candidates_initial": 2000,
+    "geometry_prior_seeds": [
+      777,
+      778,
+      779,
+      780,
+      781,
+      782,
+      783,
+      784,
+      785,
+      786,
+      787,
+      788,
+      789,
+      790,
+      791,
+      792,
+      793,
+      794,
+      795,
+      796,
+      797,
+      798,
+      799,
+      800,
+      801,
+      802,
+      803,
+      804,
+      805,
+      806,
+      807,
+      808,
+      809,
+      810,
+      811,
+      812,
+      813,
+      814,
+      815,
+      816,
+      817,
+      818,
+      819,
+      820,
+      821,
+      822,
+      823,
+      824
+    ],
+    "noise_std": 0.002,
+    "quantization": "8-bit"
+  },
+  "nulls": [
+    {
+      "funnel": {
+        "background_chi2": 127.36949411421472,
+        "background_delta": 0.8628167506463059,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.05,
+          "reversed": true
+        },
+        "best_chi2": 16.877846050094405,
+        "birge": 0.31255270463137785,
+        "box_refuted_fraction": 0.04097222222222219,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.05,
+              "reversed": true
+            },
+            "best_chi2": 16.877846050094405,
+            "birge": 0.31255270463137785,
+            "delta_chi2": 23.271802284890388,
+            "forward_survivors": 699,
+            "kept": 1381,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 59,
+            "refuted_share": 0.04097222222222219,
+            "reversed_survivors": 682,
+            "seconds": 0.75,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1381,
+        "noise_correlation": 4.102613602864991,
+        "noise_sigma": [
+          0.00023275350683315364,
+          0.00024636443891634164,
+          0.00022483149404803373
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 41,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 134.34215010072137,
+        "background_delta": 0.8012438911092246,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.02838135097186515,
+          "phi_end": 1.3000000000000005,
+          "phi_start": 0.05,
+          "reversed": true
+        },
+        "best_chi2": 20.91877237508794,
+        "birge": 0.38738467361273965,
+        "box_refuted_fraction": 0.046527777777777724,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.02838135097186515,
+              "phi_end": 1.3000000000000005,
+              "phi_start": 0.05,
+              "reversed": true
+            },
+            "best_chi2": 20.91877237508794,
+            "birge": 0.38738467361273965,
+            "delta_chi2": 25.725094567002472,
+            "forward_survivors": 673,
+            "kept": 1373,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 67,
+            "refuted_share": 0.046527777777777724,
+            "reversed_survivors": 700,
+            "seconds": 0.82,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1373,
+        "noise_correlation": 4.535107406532769,
+        "noise_sigma": [
+          0.00019411693144410577,
+          0.0001785545795283857,
+          0.000248871153014569
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 43,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 102.54464459810417,
+        "background_delta": 0.7257001359355977,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.1500000000000004,
+          "phi_start": 0.2,
+          "reversed": true
+        },
+        "best_chi2": 11.392309497766796,
+        "birge": 0.21096869440308882,
+        "box_refuted_fraction": 0.015277777777777724,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.1500000000000004,
+              "phi_start": 0.2,
+              "reversed": true
+            },
+            "best_chi2": 11.392309497766796,
+            "birge": 0.21096869440308882,
+            "delta_chi2": 22.825995600106108,
+            "forward_survivors": 707,
+            "kept": 1418,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 22,
+            "refuted_share": 0.015277777777777724,
+            "reversed_survivors": 711,
+            "seconds": 0.72,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1418,
+        "noise_correlation": 4.024021814104753,
+        "noise_sigma": [
+          0.00025194787538180554,
+          0.00019983831135459652,
+          0.00018964264012815224
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 47,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 78.41813954089976,
+        "background_delta": 0.40197203912327834,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.0,
+          "reversed": true
+        },
+        "best_chi2": 10.618731566485774,
+        "birge": 0.19664317715714397,
+        "box_refuted_fraction": 0.0,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.0,
+              "reversed": true
+            },
+            "best_chi2": 10.618731566485774,
+            "birge": 0.19664317715714397,
+            "delta_chi2": 30.651320668508678,
+            "forward_survivors": 720,
+            "kept": 1440,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 0,
+            "refuted_share": 0.0,
+            "reversed_survivors": 720,
+            "seconds": 0.66,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1440,
+        "noise_correlation": 5.403557643751821,
+        "noise_sigma": [
+          0.00026575570003631023,
+          0.00019105902189372602,
+          0.00027805776487176245
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 53,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 124.306454366222,
+        "background_delta": 0.703621482703239,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.2000000000000004,
+          "phi_start": 0.15000000000000002,
+          "reversed": false
+        },
+        "best_chi2": 10.93393435782323,
+        "birge": 0.20248026588561535,
+        "box_refuted_fraction": 0.036805555555555536,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.2000000000000004,
+              "phi_start": 0.15000000000000002,
+              "reversed": false
+            },
+            "best_chi2": 10.93393435782323,
+            "birge": 0.20248026588561535,
+            "delta_chi2": 29.281130782621435,
+            "forward_survivors": 699,
+            "kept": 1387,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 53,
+            "refuted_share": 0.036805555555555536,
+            "reversed_survivors": 688,
+            "seconds": 0.7,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1387,
+        "noise_correlation": 5.1620052450362826,
+        "noise_sigma": [
+          0.0002730956888775557,
+          0.0002555865898399581,
+          0.00021228674196924357
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 59,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 142.21257316802627,
+        "background_delta": 0.8314223996275076,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.1000000000000003,
+          "phi_start": 0.4,
+          "reversed": false
+        },
+        "best_chi2": 14.531706249947188,
+        "birge": 0.2691056712953183,
+        "box_refuted_fraction": 0.19027777777777777,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.1000000000000003,
+              "phi_start": 0.4,
+              "reversed": false
+            },
+            "best_chi2": 14.531706249947188,
+            "birge": 0.2691056712953183,
+            "delta_chi2": 27.907648021533934,
+            "forward_survivors": 592,
+            "kept": 1166,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 274,
+            "refuted_share": 0.19027777777777777,
+            "reversed_survivors": 574,
+            "seconds": 0.72,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1166,
+        "noise_correlation": 4.919872341449494,
+        "noise_sigma": [
+          0.00027958273502582743,
+          0.00014877226515729923,
+          0.000295891472045332
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 61,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 145.40905341329142,
+        "background_delta": 0.8018640169189989,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.3000000000000005,
+          "phi_start": 0.0,
+          "reversed": true
+        },
+        "best_chi2": 20.260079155610192,
+        "birge": 0.37518665102981835,
+        "box_refuted_fraction": 0.03819444444444442,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.3000000000000005,
+              "phi_start": 0.0,
+              "reversed": true
+            },
+            "best_chi2": 20.260079155610192,
+            "birge": 0.37518665102981835,
+            "delta_chi2": 28.362578055704812,
+            "forward_survivors": 693,
+            "kept": 1385,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 55,
+            "refuted_share": 0.03819444444444442,
+            "reversed_survivors": 692,
+            "seconds": 0.65,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1385,
+        "noise_correlation": 5.0000724962846474,
+        "noise_sigma": [
+          0.0002733665764504167,
+          0.00029512262100067274,
+          0.0001654379282848764
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 67,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 128.66253585619913,
+        "background_delta": 0.7869217533374253,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 0.9000000000000001,
+          "phi_start": 0.35000000000000003,
+          "reversed": false
+        },
+        "best_chi2": 15.739450090568132,
+        "birge": 0.2914712979734839,
+        "box_refuted_fraction": 0.02083333333333337,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 0.9000000000000001,
+              "phi_start": 0.35000000000000003,
+              "reversed": false
+            },
+            "best_chi2": 15.739450090568132,
+            "birge": 0.2914712979734839,
+            "delta_chi2": 26.07776223421059,
+            "forward_survivors": 713,
+            "kept": 1410,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 30,
+            "refuted_share": 0.02083333333333337,
+            "reversed_survivors": 697,
+            "seconds": 0.75,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1410,
+        "noise_correlation": 4.597279607510863,
+        "noise_sigma": [
+          0.00021242209619878286,
+          0.00026304014402226745,
+          0.0002745033363933459
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 71,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 68.33147674623856,
+        "background_delta": 0.3512086841162157,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.2000000000000004,
+          "phi_start": 0.0,
+          "reversed": true
+        },
+        "best_chi2": 10.619423076680418,
+        "birge": 0.19665598290148922,
+        "box_refuted_fraction": 0.002777777777777768,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.2000000000000004,
+              "phi_start": 0.0,
+              "reversed": true
+            },
+            "best_chi2": 10.619423076680418,
+            "birge": 0.19665598290148922,
+            "delta_chi2": 29.862104981107716,
+            "forward_survivors": 716,
+            "kept": 1436,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 4,
+            "refuted_share": 0.002777777777777768,
+            "reversed_survivors": 720,
+            "seconds": 0.72,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1436,
+        "noise_correlation": 5.264425874966219,
+        "noise_sigma": [
+          0.0002891012729754821,
+          0.00026086091052281136,
+          0.00020913947959200367
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 73,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 62.65469705216247,
+        "background_delta": 0.28921767925921893,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.05,
+          "reversed": false
+        },
+        "best_chi2": 8.632720765393238,
+        "birge": 0.15986519935913404,
+        "box_refuted_fraction": 0.0,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.05,
+              "reversed": false
+            },
+            "best_chi2": 8.632720765393238,
+            "birge": 0.15986519935913404,
+            "delta_chi2": 33.9441365601358,
+            "forward_survivors": 720,
+            "kept": 1440,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 0,
+            "refuted_share": 0.0,
+            "reversed_survivors": 720,
+            "seconds": 0.81,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1440,
+        "noise_correlation": 5.984052059411691,
+        "noise_sigma": [
+          0.00021373835613306316,
+          0.0003305280321282949,
+          0.0002670472661570574
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 79,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 134.5510936029722,
+        "background_delta": 0.676184832263404,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.2000000000000004,
+          "phi_start": 0.0,
+          "reversed": false
+        },
+        "best_chi2": 21.63124116106082,
+        "birge": 0.4005785400196448,
+        "box_refuted_fraction": 0.07222222222222219,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.2000000000000004,
+              "phi_start": 0.0,
+              "reversed": false
+            },
+            "best_chi2": 21.63124116106082,
+            "birge": 0.4005785400196448,
+            "delta_chi2": 30.347576312809394,
+            "forward_survivors": 673,
+            "kept": 1336,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 104,
+            "refuted_share": 0.07222222222222219,
+            "reversed_survivors": 663,
+            "seconds": 0.73,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1336,
+        "noise_correlation": 5.3500101913357945,
+        "noise_sigma": [
+          0.00023499214478481844,
+          0.00025775283098054304,
+          0.0001833535493758961
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 83,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 141.06194031994906,
+        "background_delta": 0.8616967485006383,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.0,
+          "reversed": true
+        },
+        "best_chi2": 18.937980479665853,
+        "birge": 0.35070334221603433,
+        "box_refuted_fraction": 0.07291666666666663,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.0,
+              "reversed": true
+            },
+            "best_chi2": 18.937980479665853,
+            "birge": 0.35070334221603433,
+            "delta_chi2": 25.755237467708735,
+            "forward_survivors": 676,
+            "kept": 1335,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 105,
+            "refuted_share": 0.07291666666666663,
+            "reversed_survivors": 659,
+            "seconds": 0.66,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1335,
+        "noise_correlation": 4.540421334218878,
+        "noise_sigma": [
+          0.00023315335969476458,
+          0.0002293939491590628,
+          0.00018161691164312886
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 89,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 95.10697590587566,
+        "background_delta": 0.5774364224465417,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.0,
+          "reversed": false
+        },
+        "best_chi2": 11.897089285336227,
+        "birge": 0.22031646824696716,
+        "box_refuted_fraction": 0.00694444444444442,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.0,
+              "reversed": false
+            },
+            "best_chi2": 11.897089285336227,
+            "birge": 0.22031646824696716,
+            "delta_chi2": 26.18724981333889,
+            "forward_survivors": 711,
+            "kept": 1430,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 10,
+            "refuted_share": 0.00694444444444442,
+            "reversed_survivors": 719,
+            "seconds": 0.77,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1430,
+        "noise_correlation": 4.616581302582765,
+        "noise_sigma": [
+          0.00032871529196962137,
+          0.00024487932563751954,
+          0.0001930880927872583
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 97,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 138.94454228156798,
+        "background_delta": 1.0446136716229537,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.040275054149409545,
+          "phi_end": 1.3000000000000005,
+          "phi_start": 0.0,
+          "reversed": false
+        },
+        "best_chi2": 10.897084433495365,
+        "birge": 0.2017978598795438,
+        "box_refuted_fraction": 0.011805555555555514,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.040275054149409545,
+              "phi_end": 1.3000000000000005,
+              "phi_start": 0.0,
+              "reversed": false
+            },
+            "best_chi2": 10.897084433495365,
+            "birge": 0.2017978598795438,
+            "delta_chi2": 22.275855408224743,
+            "forward_survivors": 719,
+            "kept": 1423,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 17,
+            "refuted_share": 0.011805555555555514,
+            "reversed_survivors": 704,
+            "seconds": 0.66,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1423,
+        "noise_correlation": 3.927036947738788,
+        "noise_sigma": [
+          0.000361810638784555,
+          0.00021047707749924689,
+          0.00019196613560304383
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (1x the survival threshold), but the photo does not decide the corner geometry: 1% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "seed": 101,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 181.32127165250458,
+        "background_delta": 1.3377988318150558,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.3000000000000005,
+          "phi_start": 0.05,
+          "reversed": false
+        },
+        "best_chi2": 17.0040710460976,
+        "birge": 0.31489020455736294,
+        "box_refuted_fraction": 0.33333333333333337,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.3000000000000005,
+              "phi_start": 0.05,
+              "reversed": false
+            },
+            "best_chi2": 17.0040710460976,
+            "birge": 0.31489020455736294,
+            "delta_chi2": 22.320881920394037,
+            "forward_survivors": 537,
+            "kept": 960,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 480,
+            "refuted_share": 0.33333333333333337,
+            "reversed_survivors": 423,
+            "seconds": 0.68,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 960,
+        "noise_correlation": 3.9349747249274185,
+        "noise_sigma": [
+          0.00023287071009166544,
+          0.00017608030462451114,
+          0.00021236727485289935
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (1x the survival threshold), but the photo does not decide the corner geometry: 33% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "seed": 103,
+      "truth_survived_all_levels": true
+    },
+    {
+      "funnel": {
+        "background_chi2": 85.4041168242681,
+        "background_delta": 0.5434654238306741,
+        "background_refuted": false,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.1000000000000003,
+          "phi_start": 0.45,
+          "reversed": false
+        },
+        "best_chi2": 10.781349454738834,
+        "birge": 0.19965461953220062,
+        "box_refuted_fraction": 0.02013888888888893,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.1000000000000003,
+              "phi_start": 0.45,
+              "reversed": false
+            },
+            "best_chi2": 10.781349454738834,
+            "birge": 0.19965461953220062,
+            "delta_chi2": 24.952758701915524,
+            "forward_survivors": 706,
+            "kept": 1411,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 29,
+            "refuted_share": 0.02013888888888893,
+            "reversed_survivors": 705,
+            "seconds": 0.69,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1411,
+        "noise_correlation": 4.398951401626201,
+        "noise_sigma": [
+          0.000196274317611717,
+          0.00029539227076276725,
+          0.00031792391843269937
+        ],
+        "reversed_refuted": false,
+        "status": "no-signal",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Weak evidence: no occluder signature above this boundary's own noise: a constant plus a ramp explains it as well as any corner geometry. The photo does not constrain the hidden side here."
+      },
+      "seed": 107,
+      "truth_survived_all_levels": true
+    }
+  ],
+  "protocol": "docs/superpowers/specs/2026-10-03-gate2-geometry-funnel-design.md",
+  "result": {
+    "descriptive": {
+      "coverage90": {
+        "posterior_default_geometry": "2/16",
+        "posterior_oracle_geometry": "14/16",
+        "posterior_prior_marginal": "11/16"
+      },
+      "detected_signal_scenes": "16/16",
+      "median_box_refuted_fraction": 0.03576388888888887,
+      "median_ess": {
+        "posterior_default_geometry": 12.659634054829372,
+        "posterior_oracle_geometry": 29.087027245948033,
+        "posterior_prior_marginal": 48.033008316333095
+      },
+      "median_temperature": 1.0,
+      "median_theta_error": {
+        "posterior_default_geometry": 0.09229941240094872,
+        "posterior_oracle_geometry": 0.006183868025916417,
+        "posterior_prior_marginal": 0.0615068670803941
+      },
+      "prior_median_theta_error": 0.2780919373035431,
+      "reversed_refuted": "0/16",
+      "status_counts": {
+        "decided-geometry": 0,
+        "no-signal": 0,
+        "refuted-model": 0,
+        "undecided-geometry": 16
+      },
+      "v0_median_ess": 1.0000003576278687,
+      "v0_median_theta_error": 0.08510011434555054
+    },
+    "gates": {
+      "G2a_no_false_alarms": {
+        "observed": "2/16",
+        "pass": false,
+        "required": "<= 1"
+      },
+      "G2b_truth_never_refuted": {
+        "observed": "16/16",
+        "pass": true,
+        "required": ">= 15"
+      },
+      "G2c_calibrated_interval": {
+        "observed": "11/16",
+        "pass": false,
+        "required": ">= 12 of 16"
+      },
+      "G2d_no_collapse": {
+        "observed": 48.033008316333095,
+        "pass": true,
+        "required": ">= 20"
+      }
+    },
+    "passed": false
+  },
+  "scenes": [
+    {
+      "funnel": {
+        "background_chi2": 3364.3555930126554,
+        "background_delta": 23.342573618702456,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 0.8500000000000001,
+          "phi_start": 0.45,
+          "reversed": false
+        },
+        "best_chi2": 17.144975074037617,
+        "birge": 0.317499538408104,
+        "box_refuted_fraction": 0.15763888888888888,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 0.8500000000000001,
+              "phi_start": 0.45,
+              "reversed": false
+            },
+            "best_chi2": 17.144975074037617,
+            "birge": 0.317499538408104,
+            "delta_chi2": 26.058741532392425,
+            "forward_survivors": 608,
+            "kept": 1213,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 227,
+            "refuted_share": 0.15763888888888888,
+            "reversed_survivors": 605,
+            "seconds": 0.7,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1213,
+        "noise_correlation": 4.59392642544701,
+        "noise_sigma": [
+          0.00015327012102344723,
+          0.000322192894528405,
+          0.00025640399961266667
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (23x the survival threshold), but the photo does not decide the corner geometry: 16% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 42,
+      "posterior_default_geometry": {
+        "best_chi2": 258.3718909611122,
+        "covers68": false,
+        "covers90": false,
+        "ess": 32.417184185464365,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.44436744145178025,
+          0.457078587283869
+        ],
+        "interval90": [
+          0.4397603221221531,
+          0.4631499432835877
+        ],
+        "mean_rgb": [
+          0.32354032031545116,
+          0.3751477010008894,
+          0.8388291983732898
+        ],
+        "mean_theta": 0.45165641834450554,
+        "noise_correlation": 4.59392642544701,
+        "pool_size": 12000,
+        "std_theta": 0.006967439792312884,
+        "temperature": 1.3966048160060118,
+        "theta_error": 0.10210754205895256
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 257.1345150821536,
+        "covers68": true,
+        "covers90": true,
+        "ess": 8.771240892911393,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.3429035155691306,
+          0.35596399172470916
+        ],
+        "interval90": [
+          0.3376662278054809,
+          0.3559732362774229
+        ],
+        "mean_rgb": [
+          0.18535843488491363,
+          0.22848138623771266,
+          0.49339280241199884
+        ],
+        "mean_theta": 0.3496162438271309,
+        "noise_correlation": 4.59392642544701,
+        "pool_size": 12000,
+        "std_theta": 0.005976193527323448,
+        "temperature": 1.3899162977413708,
+        "theta_error": 6.736754157793401e-05
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 253.4412654794832,
+        "covers68": false,
+        "covers90": true,
+        "ess": 34.610909001899984,
+        "geometry_ess": 12.392697938185167,
+        "interval68": [
+          0.37414085490645516,
+          0.48076892091704965
+        ],
+        "interval90": [
+          0.32294775514116797,
+          0.5612290746820778
+        ],
+        "mean_rgb": [
+          0.27935217601695506,
+          0.3292358383952627,
+          0.7341429210493136
+        ],
+        "mean_theta": 0.43295312183616025,
+        "noise_correlation": 4.59392642544701,
+        "pool_size": 12000,
+        "std_theta": 0.06706176018058231,
+        "temperature": 1.369952786375585,
+        "theta_error": 0.08340424555060727
+      },
+      "prior_theta_error": 0.30045112371444704,
+      "seconds": 25.5,
+      "seed": 41,
+      "truth": {
+        "brightness": 0.5397318005561829,
+        "geometry": {
+          "penumbra": 0.07909888160379436,
+          "phi_end": 0.9532226252216216,
+          "phi_start": 0.04370921359106626,
+          "reversed": false
+        },
+        "rgb": [
+          0.20226889848709106,
+          0.2884625494480133,
+          0.7447925806045532
+        ],
+        "shape_code": 1,
+        "theta": 0.349548876285553
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0,
+        "std_theta": 4.838812461827047e-09,
+        "theta_error": 0.13218241930007935
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 1656.6487696157637,
+        "background_delta": 9.910965908136045,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 0.75,
+          "phi_start": 0.30000000000000004,
+          "reversed": false
+        },
+        "best_chi2": 7.396145070873491,
+        "birge": 0.1369656494606202,
+        "box_refuted_fraction": 0.0,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 0.75,
+              "phi_start": 0.30000000000000004,
+              "reversed": false
+            },
+            "best_chi2": 7.396145070873491,
+            "birge": 0.1369656494606202,
+            "delta_chi2": 30.240595325887295,
+            "forward_survivors": 720,
+            "kept": 1440,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 0,
+            "refuted_share": 0.0,
+            "reversed_survivors": 720,
+            "seconds": 0.72,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1440,
+        "noise_correlation": 5.3311503863743415,
+        "noise_sigma": [
+          0.000306867070057286,
+          0.0003779081247746944,
+          0.00025353446259452896
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (10x the survival threshold), but the photo does not decide the corner geometry: 0% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 90.37229545336058,
+        "covers68": false,
+        "covers90": false,
+        "ess": 1.646645159639381,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.4795548335000165,
+          0.4795592093012103
+        ],
+        "interval90": [
+          0.46331257390267794,
+          0.48104306637171707
+        ],
+        "mean_rgb": [
+          0.49247330786876403,
+          0.2774292671995357,
+          0.13279381016075292
+        ],
+        "mean_theta": 0.47823310784649437,
+        "noise_correlation": 5.3311503863743415,
+        "pool_size": 12000,
+        "std_theta": 0.005500997857621794,
+        "temperature": 1.0,
+        "theta_error": 0.11929070063281472
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 104.34930434242199,
+        "covers68": true,
+        "covers90": true,
+        "ess": 71.29310919056189,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.5908817858559143,
+          0.6040160555675418
+        ],
+        "interval90": [
+          0.585491171987973,
+          0.60999481087472
+        ],
+        "mean_rgb": [
+          0.7366374218317242,
+          0.3460458500578019,
+          0.2274828914795729
+        ],
+        "mean_theta": 0.5974252948480481,
+        "noise_correlation": 5.3311503863743415,
+        "pool_size": 12000,
+        "std_theta": 0.007408041356767761,
+        "temperature": 1.0,
+        "theta_error": 9.85136312610102e-05
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 87.58599727652363,
+        "covers68": true,
+        "covers90": true,
+        "ess": 54.576016395590614,
+        "geometry_ess": 17.416244818645634,
+        "interval68": [
+          0.3913434856644222,
+          0.6076334556183018
+        ],
+        "interval90": [
+          0.39001003760154535,
+          0.6279617411129627
+        ],
+        "mean_rgb": [
+          0.7303331789636,
+          0.3501301831488233,
+          0.22488159304623143
+        ],
+        "mean_theta": 0.5062775018899182,
+        "noise_correlation": 5.3311503863743415,
+        "pool_size": 12000,
+        "std_theta": 0.08521165164600218,
+        "temperature": 1.0,
+        "theta_error": 0.09124630658939092
+      },
+      "prior_theta_error": 0.05247619152069094,
+      "seconds": 26.6,
+      "seed": 43,
+      "truth": {
+        "brightness": 0.8636603355407715,
+        "geometry": {
+          "penumbra": 0.0803671166403245,
+          "phi_end": 1.2885459643906936,
+          "phi_start": 0.21038714770709574,
+          "reversed": false
+        },
+        "rgb": [
+          0.3615611791610718,
+          0.18327900767326355,
+          0.1272369921207428
+        ],
+        "shape_code": 1,
+        "theta": 0.5975238084793091
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0,
+        "std_theta": 3.278010458560021e-13,
+        "theta_error": 0.1216195821762085
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 27216.567612837895,
+        "background_delta": 229.11566816243365,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.0,
+          "reversed": false
+        },
+        "best_chi2": 15.559364201405671,
+        "birge": 0.288136374100105,
+        "box_refuted_fraction": 0.3222222222222222,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.0,
+              "reversed": false
+            },
+            "best_chi2": 15.559364201405671,
+            "birge": 0.288136374100105,
+            "delta_chi2": 21.574927624463808,
+            "forward_survivors": 490,
+            "kept": 976,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 464,
+            "refuted_share": 0.3222222222222222,
+            "reversed_survivors": 486,
+            "seconds": 0.86,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 976,
+        "noise_correlation": 3.8034695581107543,
+        "noise_sigma": [
+          0.00016837444325095251,
+          0.0001921654255649131,
+          0.00021657574673655312
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (229x the survival threshold), but the photo does not decide the corner geometry: 32% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 39,
+      "posterior_default_geometry": {
+        "best_chi2": 471.8609372529272,
+        "covers68": false,
+        "covers90": false,
+        "ess": 3.5470602620443508,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.12170193948520355,
+          0.12745034055573928
+        ],
+        "interval90": [
+          0.11840403005103166,
+          0.13199613834115193
+        ],
+        "mean_rgb": [
+          0.7117573200944664,
+          0.4695930579866983,
+          0.5615557003865776
+        ],
+        "mean_theta": 0.12341150710821715,
+        "noise_correlation": 3.8034695581107543,
+        "pool_size": 12000,
+        "std_theta": 0.0040616782070509875,
+        "temperature": 2.5505996608266335,
+        "theta_error": 0.01706275274514589
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 250.12834215594455,
+        "covers68": false,
+        "covers90": false,
+        "ess": 1.2119034830656759,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.1479499880872658,
+          0.14795021710643494
+        ],
+        "interval90": [
+          0.1479499510400473,
+          0.14923792001775063
+        ],
+        "mean_rgb": [
+          0.7345633000212987,
+          0.4708458083076985,
+          0.5639517401264296
+        ],
+        "mean_theta": 0.1481126010271787,
+        "noise_correlation": 3.8034695581107543,
+        "pool_size": 12000,
+        "std_theta": 0.0009646184690115216,
+        "temperature": 1.3520450927348353,
+        "theta_error": 0.007638341173815649
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 454.6081624181411,
+        "covers68": false,
+        "covers90": false,
+        "ess": 24.145736504549642,
+        "geometry_ess": 1.863126499147067,
+        "interval68": [
+          0.08354579204647117,
+          0.0908562467763829
+        ],
+        "interval90": [
+          0.08146496214314602,
+          0.0949465393855528
+        ],
+        "mean_rgb": [
+          0.714279989421569,
+          0.4603287161364741,
+          0.5865528881392715
+        ],
+        "mean_theta": 0.08750971074873462,
+        "noise_correlation": 3.8034695581107543,
+        "pool_size": 12000,
+        "std_theta": 0.004452051227429882,
+        "temperature": 2.4573414184764384,
+        "theta_error": 0.05296454910462842
+      },
+      "prior_theta_error": 0.509525740146637,
+      "seconds": 25.7,
+      "seed": 47,
+      "truth": {
+        "brightness": 1.133030891418457,
+        "geometry": {
+          "penumbra": 0.029233173100394003,
+          "phi_end": 1.185612035494251,
+          "phi_start": 0.046794784486589976,
+          "reversed": false
+        },
+        "rgb": [
+          0.8381183743476868,
+          0.550458550453186,
+          0.7685429453849792
+        ],
+        "shape_code": 1,
+        "theta": 0.14047425985336304
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0,
+        "std_theta": 1.0706749072400545e-12,
+        "theta_error": 0.025152862071990967
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 3903.3302581156395,
+        "background_delta": 22.8834469394261,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.040275054149409545,
+          "phi_end": 1.3000000000000005,
+          "phi_start": 0.0,
+          "reversed": true
+        },
+        "best_chi2": 12.531636646760942,
+        "birge": 0.23206734531038783,
+        "box_refuted_fraction": 0.002083333333333326,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.040275054149409545,
+              "phi_end": 1.3000000000000005,
+              "phi_start": 0.0,
+              "reversed": true
+            },
+            "best_chi2": 12.531636646760942,
+            "birge": 0.23206734531038783,
+            "delta_chi2": 30.898432317594814,
+            "forward_survivors": 720,
+            "kept": 1437,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 3,
+            "refuted_share": 0.002083333333333326,
+            "reversed_survivors": 717,
+            "seconds": 0.63,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1437,
+        "noise_correlation": 5.447121249206884,
+        "noise_sigma": [
+          0.0001991027809550844,
+          0.00022640548450054518,
+          0.0003111528600437136
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (23x the survival threshold), but the photo does not decide the corner geometry: 0% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 197.9095238597544,
+        "covers68": false,
+        "covers90": false,
+        "ess": 226.7742866120519,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.9740128713151047,
+          0.9966627340445869
+        ],
+        "interval90": [
+          0.9684721147088216,
+          1.0076011019927222
+        ],
+        "mean_rgb": [
+          0.7484250603653223,
+          0.5287013386394122,
+          0.7292628780312375
+        ],
+        "mean_theta": 0.9860009688637726,
+        "noise_correlation": 5.447121249206884,
+        "pool_size": 12000,
+        "std_theta": 0.011981304428469348,
+        "temperature": 1.0697812100527264,
+        "theta_error": 0.05604387705545355
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 152.50405567167186,
+        "covers68": true,
+        "covers90": true,
+        "ess": 100.71418739768302,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.8968982303669022,
+          0.9379245938313622
+        ],
+        "interval90": [
+          0.8910034192069709,
+          0.9638347520923873
+        ],
+        "mean_rgb": [
+          0.7934637934792884,
+          0.5461969604157518,
+          0.7730680805843211
+        ],
+        "mean_theta": 0.9173365735945433,
+        "noise_correlation": 5.447121249206884,
+        "pool_size": 12000,
+        "std_theta": 0.021277793860446287,
+        "temperature": 1.0,
+        "theta_error": 0.012620518213775744
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 152.72161426124296,
+        "covers68": true,
+        "covers90": true,
+        "ess": 389.8088100373396,
+        "geometry_ess": 28.521020699472878,
+        "interval68": [
+          0.7838837718097262,
+          0.9542949281347987
+        ],
+        "interval90": [
+          0.7309505038033302,
+          1.018789506678668
+        ],
+        "mean_rgb": [
+          0.7273599676713252,
+          0.5072201858168328,
+          0.712383511408763
+        ],
+        "mean_theta": 0.8634405182738754,
+        "noise_correlation": 5.447121249206884,
+        "pool_size": 12000,
+        "std_theta": 0.08379686991255736,
+        "temperature": 1.0,
+        "theta_error": 0.06651657353444373
+      },
+      "prior_theta_error": 0.27995709180831907,
+      "seconds": 26.0,
+      "seed": 53,
+      "truth": {
+        "brightness": 0.5597444176673889,
+        "geometry": {
+          "penumbra": 0.1176005636388333,
+          "phi_end": 1.0627226709114148,
+          "phi_start": 0.2824528679931863,
+          "reversed": false
+        },
+        "rgb": [
+          0.6295514106750488,
+          0.4532940983772278,
+          0.6803507208824158
+        ],
+        "shape_code": 0,
+        "theta": 0.9299570918083191
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0,
+        "std_theta": 5.076129516723427e-10,
+        "theta_error": 0.019354581832885742
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 3080.795996398711,
+        "background_delta": 20.515455638705898,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 0.75,
+          "phi_start": 0.30000000000000004,
+          "reversed": true
+        },
+        "best_chi2": 15.139043632547383,
+        "birge": 0.28035265986198854,
+        "box_refuted_fraction": 0.2652777777777777,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 0.75,
+              "phi_start": 0.30000000000000004,
+              "reversed": true
+            },
+            "best_chi2": 15.139043632547383,
+            "birge": 0.28035265986198854,
+            "delta_chi2": 27.15573260938088,
+            "forward_survivors": 519,
+            "kept": 1058,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 382,
+            "refuted_share": 0.2652777777777777,
+            "reversed_survivors": 539,
+            "seconds": 0.66,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1058,
+        "noise_correlation": 4.787316282389736,
+        "noise_sigma": [
+          0.0003085970700052207,
+          0.00021469591737690124,
+          0.0001801159032756371
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (21x the survival threshold), but the photo does not decide the corner geometry: 27% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 42,
+      "posterior_default_geometry": {
+        "best_chi2": 341.42914115228837,
+        "covers68": false,
+        "covers90": false,
+        "ess": 1.711430830219632,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.6384868151123612,
+          0.6384957659969495
+        ],
+        "interval90": [
+          0.6334870216500547,
+          0.6435792982450617
+        ],
+        "mean_rgb": [
+          0.263357101922587,
+          0.7994700256298376,
+          0.5894949641409714
+        ],
+        "mean_theta": 0.6386246809305077,
+        "noise_correlation": 4.787316282389736,
+        "pool_size": 12000,
+        "std_theta": 0.0033372977209992303,
+        "temperature": 1.8455629251475048,
+        "theta_error": 0.0717828145681495
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 346.13936236380823,
+        "covers68": false,
+        "covers90": false,
+        "ess": 1.0463441159481943,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.714261751496298,
+          0.7142626408789066
+        ],
+        "interval90": [
+          0.7142616076255819,
+          0.7142627847496226
+        ],
+        "mean_rgb": [
+          0.5341752091852814,
+          0.7894740651868903,
+          0.7480205734593558
+        ],
+        "mean_theta": 0.7141983517967626,
+        "noise_correlation": 4.787316282389736,
+        "pool_size": 12000,
+        "std_theta": 0.000979341050412122,
+        "temperature": 1.8710235803449093,
+        "theta_error": 0.003790856298105383
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 285.10365005520123,
+        "covers68": false,
+        "covers90": false,
+        "ess": 74.36974255418717,
+        "geometry_ess": 24.582185894320194,
+        "interval68": [
+          0.4854927057051554,
+          0.6559254818955839
+        ],
+        "interval90": [
+          0.4589881349108697,
+          0.6991815728032705
+        ],
+        "mean_rgb": [
+          0.22296835409797974,
+          0.695340791988676,
+          0.5074823443137766
+        ],
+        "mean_theta": 0.5748973720971406,
+        "noise_correlation": 4.787316282389736,
+        "pool_size": 12000,
+        "std_theta": 0.07231125908729023,
+        "temperature": 1.5411008111091957,
+        "theta_error": 0.13551012340151658
+      },
+      "prior_theta_error": 0.060407495498657204,
+      "seconds": 25.6,
+      "seed": 59,
+      "truth": {
+        "brightness": 0.8309241533279419,
+        "geometry": {
+          "penumbra": 0.0820567212711248,
+          "phi_end": 1.0764219282653036,
+          "phi_start": 0.39187513317519646,
+          "reversed": false
+        },
+        "rgb": [
+          0.21175430715084076,
+          0.8872326016426086,
+          0.6488758325576782
+        ],
+        "shape_code": 1,
+        "theta": 0.7104074954986572
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0000025033950806,
+        "std_theta": 3.531467882567085e-05,
+        "theta_error": 0.06043499708175659
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 16848.57076128038,
+        "background_delta": 69.00389416514807,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.040275054149409545,
+          "phi_end": 0.9000000000000001,
+          "phi_start": 0.1,
+          "reversed": false
+        },
+        "best_chi2": 7.165096055011246,
+        "birge": 0.13268696398168975,
+        "box_refuted_fraction": 0.014583333333333282,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.040275054149409545,
+              "phi_end": 0.9000000000000001,
+              "phi_start": 0.1,
+              "reversed": false
+            },
+            "best_chi2": 7.165096055011246,
+            "birge": 0.13268696398168975,
+            "delta_chi2": 44.353088959244936,
+            "forward_survivors": 714,
+            "kept": 1419,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 21,
+            "refuted_share": 0.014583333333333282,
+            "reversed_survivors": 705,
+            "seconds": 0.67,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1419,
+        "noise_correlation": 7.8190586128957555,
+        "noise_sigma": [
+          0.0003241524153481501,
+          0.0003438993732960751,
+          0.0004063229577313563
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (69x the survival threshold), but the photo does not decide the corner geometry: 1% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 87.46641504810933,
+        "covers68": false,
+        "covers90": true,
+        "ess": 21.258958543676542,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.0864452130680385,
+          0.13695367054142493
+        ],
+        "interval90": [
+          0.08643253711252831,
+          0.15678490086873073
+        ],
+        "mean_rgb": [
+          0.6131018818872277,
+          0.5251497039976379,
+          0.6550158152625444
+        ],
+        "mean_theta": 0.11196793110527388,
+        "noise_correlation": 7.8190586128957555,
+        "pool_size": 12000,
+        "std_theta": 0.023319737392907987,
+        "temperature": 1.0,
+        "theta_error": 0.04120223729453691
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 90.83807442741576,
+        "covers68": true,
+        "covers90": true,
+        "ess": 47.21475035134679,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.11156062047682029,
+          0.20376620984536106
+        ],
+        "interval90": [
+          0.09117162955222609,
+          0.20598351532638728
+        ],
+        "mean_rgb": [
+          0.6481923308729469,
+          0.5552349127378113,
+          0.7014056907813977
+        ],
+        "mean_theta": 0.15961735788024958,
+        "noise_correlation": 7.8190586128957555,
+        "pool_size": 12000,
+        "std_theta": 0.03769515643007736,
+        "temperature": 1.0,
+        "theta_error": 0.006447189480438792
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 97.1408061033123,
+        "covers68": true,
+        "covers90": true,
+        "ess": 14.475835872670055,
+        "geometry_ess": 10.859861863061044,
+        "interval68": [
+          0.1503074442464997,
+          0.28530821147335095
+        ],
+        "interval90": [
+          0.11127931797595438,
+          0.3574586714065357
+        ],
+        "mean_rgb": [
+          0.6640135899025991,
+          0.5641274179589334,
+          0.7197237377268445
+        ],
+        "mean_theta": 0.21872997981585507,
+        "noise_correlation": 7.8190586128957555,
+        "pool_size": 12000,
+        "std_theta": 0.0749638797242377,
+        "temperature": 1.0,
+        "theta_error": 0.06555981141604428
+      },
+      "prior_theta_error": 0.49682983160018923,
+      "seconds": 26.1,
+      "seed": 61,
+      "truth": {
+        "brightness": 1.0695936679840088,
+        "geometry": {
+          "penumbra": 0.10321126179752492,
+          "phi_end": 1.290063381940695,
+          "phi_start": 0.07742064557885495,
+          "reversed": false
+        },
+        "rgb": [
+          0.6895149946212769,
+          0.5860872864723206,
+          0.803579568862915
+        ],
+        "shape_code": 1,
+        "theta": 0.1531701683998108
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.5698683261871338,
+        "std_theta": 0.0006105590728111565,
+        "theta_error": 0.04502227157354355
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 20477.683230318995,
+        "background_delta": 86.32900786289314,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.1500000000000004,
+          "phi_start": 0.0,
+          "reversed": true
+        },
+        "best_chi2": 7.015540537645553,
+        "birge": 0.12991741736380652,
+        "box_refuted_fraction": 0.04583333333333328,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.1500000000000004,
+              "phi_start": 0.0,
+              "reversed": true
+            },
+            "best_chi2": 7.015540537645553,
+            "birge": 0.12991741736380652,
+            "delta_chi2": 43.09177597544806,
+            "forward_survivors": 697,
+            "kept": 1374,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 66,
+            "refuted_share": 0.04583333333333328,
+            "reversed_survivors": 677,
+            "seconds": 0.71,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1374,
+        "noise_correlation": 7.596700252273422,
+        "noise_sigma": [
+          0.0002903513510675674,
+          0.00033399702673921213,
+          0.0004123759402062457
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (86x the survival threshold), but the photo does not decide the corner geometry: 5% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 103.63832404573537,
+        "covers68": false,
+        "covers90": false,
+        "ess": 11.067268538711794,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.8420578455651965,
+          0.8467626241352153
+        ],
+        "interval90": [
+          0.8388912374926475,
+          0.8491079803135655
+        ],
+        "mean_rgb": [
+          0.37353803538833674,
+          0.40773027313903365,
+          0.6036833508944348
+        ],
+        "mean_theta": 0.8450060509320102,
+        "noise_correlation": 7.596700252273422,
+        "pool_size": 12000,
+        "std_theta": 0.0027306394652052645,
+        "temperature": 1.0,
+        "theta_error": 0.07627379668990752
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 126.03983933158679,
+        "covers68": true,
+        "covers90": true,
+        "ess": 19.151037341672698,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.9195934142978903,
+          0.9233354069986389
+        ],
+        "interval90": [
+          0.9189383207588463,
+          0.9246862433519973
+        ],
+        "mean_rgb": [
+          0.4972263958330104,
+          0.5377184071384054,
+          0.8033355297535292
+        ],
+        "mean_theta": 0.9216798805283744,
+        "noise_correlation": 7.596700252273422,
+        "pool_size": 12000,
+        "std_theta": 0.001827013560365575,
+        "temperature": 1.0,
+        "theta_error": 0.0004000329064566266
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 105.08233232405765,
+        "covers68": false,
+        "covers90": false,
+        "ess": 2.413676894027582,
+        "geometry_ess": 2.4401870619468164,
+        "interval68": [
+          0.8868637173684236,
+          0.900893875030438
+        ],
+        "interval90": [
+          0.8064689055034244,
+          0.9125953684441019
+        ],
+        "mean_rgb": [
+          0.38965699671560644,
+          0.40831865804885864,
+          0.6161069924930482
+        ],
+        "mean_theta": 0.8845896766162451,
+        "noise_correlation": 7.596700252273422,
+        "pool_size": 12000,
+        "std_theta": 0.02468374564882968,
+        "temperature": 1.0,
+        "theta_error": 0.03669017100567262
+      },
+      "prior_theta_error": 0.2712798476219177,
+      "seconds": 26.7,
+      "seed": 67,
+      "truth": {
+        "brightness": 1.0712535381317139,
+        "geometry": {
+          "penumbra": 0.031127488499151524,
+          "phi_end": 1.199457775167894,
+          "phi_start": 0.39734349854323553,
+          "reversed": false
+        },
+        "rgb": [
+          0.5417174100875854,
+          0.5796512365341187,
+          0.93060702085495
+        ],
+        "shape_code": 1,
+        "theta": 0.9212798476219177
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0043048858642578,
+        "std_theta": 0.00026511194300837815,
+        "theta_error": 0.08909821510314941
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 28481.70529575928,
+        "background_delta": 191.42192831514933,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.3000000000000005,
+          "phi_start": 0.0,
+          "reversed": false
+        },
+        "best_chi2": 9.234568950361385,
+        "birge": 0.17101053611780342,
+        "box_refuted_fraction": 0.11736111111111114,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.3000000000000005,
+              "phi_start": 0.0,
+              "reversed": false
+            },
+            "best_chi2": 9.234568950361385,
+            "birge": 0.17101053611780342,
+            "delta_chi2": 27.03040813612688,
+            "forward_survivors": 643,
+            "kept": 1271,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 169,
+            "refuted_share": 0.11736111111111114,
+            "reversed_survivors": 628,
+            "seconds": 0.69,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1271,
+        "noise_correlation": 4.765222682485032,
+        "noise_sigma": [
+          0.0002352967977058144,
+          0.00029849870734955535,
+          0.00021343058887295994
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (191x the survival threshold), but the photo does not decide the corner geometry: 12% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 252.95028937724814,
+        "covers68": false,
+        "covers90": false,
+        "ess": 14.251999570946948,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.8219391546933688,
+          0.8261911182473405
+        ],
+        "interval90": [
+          0.8209309658877596,
+          0.8275972053379422
+        ],
+        "mean_rgb": [
+          0.5774774237259931,
+          0.6892280708760463,
+          0.3606479793734807
+        ],
+        "mean_theta": 0.8239540002812877,
+        "noise_correlation": 4.765222682485032,
+        "pool_size": 12000,
+        "std_theta": 0.0020680567769077863,
+        "temperature": 1.3672988614986386,
+        "theta_error": 0.16566671352286488
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 136.98348546559652,
+        "covers68": false,
+        "covers90": true,
+        "ess": 4.01088103551498,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.6563005943214177,
+          0.6576873368904139
+        ],
+        "interval90": [
+          0.655792435177487,
+          0.6586449795181964
+        ],
+        "mean_rgb": [
+          0.5292045413200283,
+          0.6222633975044626,
+          0.3306098545838209
+        ],
+        "mean_theta": 0.6567839466259204,
+        "noise_correlation": 4.765222682485032,
+        "pool_size": 12000,
+        "std_theta": 0.0009341604123840699,
+        "temperature": 1.0,
+        "theta_error": 0.0015033401325024176
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 149.80056139748314,
+        "covers68": false,
+        "covers90": false,
+        "ess": 8.937986315326215,
+        "geometry_ess": 4.341778702324067,
+        "interval68": [
+          0.6726443408651963,
+          0.7637638879658344
+        ],
+        "interval90": [
+          0.6726407064199403,
+          0.7869958988873088
+        ],
+        "mean_rgb": [
+          0.6269686672297283,
+          0.750351341181954,
+          0.39560810136226815
+        ],
+        "mean_theta": 0.7017026600972652,
+        "noise_correlation": 4.765222682485032,
+        "pool_size": 12000,
+        "std_theta": 0.0396295849509048,
+        "temperature": 1.0,
+        "theta_error": 0.04341537333884238
+      },
+      "prior_theta_error": 0.00828728675842283,
+      "seconds": 26.0,
+      "seed": 71,
+      "truth": {
+        "brightness": 1.0565834045410156,
+        "geometry": {
+          "penumbra": 0.041310928769073316,
+          "phi_end": 0.9071892849982155,
+          "phi_start": 0.24133450634313794,
+          "reversed": false
+        },
+        "rgb": [
+          0.749008059501648,
+          0.9188833832740784,
+          0.5062231421470642
+        ],
+        "shape_code": 1,
+        "theta": 0.6582872867584229
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0247431993484497,
+        "std_theta": 0.0017942823469638824,
+        "theta_error": 0.14903825521469116
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 1980.5754406464216,
+        "background_delta": 8.064794351894376,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.2000000000000004,
+          "phi_start": 0.0,
+          "reversed": false
+        },
+        "best_chi2": 10.446466729764424,
+        "birge": 0.19345308758823007,
+        "box_refuted_fraction": 0.0,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.2000000000000004,
+              "phi_start": 0.0,
+              "reversed": false
+            },
+            "best_chi2": 10.446466729764424,
+            "birge": 0.19345308758823007,
+            "delta_chi2": 44.39361337317314,
+            "forward_survivors": 720,
+            "kept": 1440,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 0,
+            "refuted_share": 0.0,
+            "reversed_survivors": 720,
+            "seconds": 0.8,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1440,
+        "noise_correlation": 7.826202709850288,
+        "noise_sigma": [
+          0.00031436614940516083,
+          0.0002603182027911625,
+          0.0002899147203453602
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (8x the survival threshold), but the photo does not decide the corner geometry: 0% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 119.4925952059495,
+        "covers68": false,
+        "covers90": false,
+        "ess": 8.182339592624821,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.9120245788107483,
+          0.9251992247933825
+        ],
+        "interval90": [
+          0.9032585912791913,
+          0.933847484278999
+        ],
+        "mean_rgb": [
+          0.7940786128729652,
+          0.08978897183274345,
+          0.514253928558456
+        ],
+        "mean_theta": 0.9202665100819818,
+        "noise_correlation": 7.826202709850288,
+        "pool_size": 12000,
+        "std_theta": 0.00905072144113588,
+        "temperature": 1.0,
+        "theta_error": 0.23764067990848936
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 114.71049496129561,
+        "covers68": true,
+        "covers90": true,
+        "ess": 39.02301715022337,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.682036558514451,
+          0.6957527986687606
+        ],
+        "interval90": [
+          0.6759382419122154,
+          0.7010824816253798
+        ],
+        "mean_rgb": [
+          0.8403958446202078,
+          0.08527327819139509,
+          0.4866199363017467
+        ],
+        "mean_theta": 0.688782659301298,
+        "noise_correlation": 7.826202709850288,
+        "pool_size": 12000,
+        "std_theta": 0.007646946646326669,
+        "temperature": 1.0,
+        "theta_error": 0.006156829127805574
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 113.65087731316305,
+        "covers68": false,
+        "covers90": true,
+        "ess": 58.90624429261535,
+        "geometry_ess": 19.21113771683974,
+        "interval68": [
+          0.733029972686774,
+          0.9577039865596365
+        ],
+        "interval90": [
+          0.6453830082533485,
+          0.9717249905659899
+        ],
+        "mean_rgb": [
+          0.8165836917885818,
+          0.10306893086062588,
+          0.48468215807448156
+        ],
+        "mean_theta": 0.8504528153163486,
+        "noise_correlation": 7.826202709850288,
+        "pool_size": 12000,
+        "std_theta": 0.10019043571829483,
+        "temperature": 1.0,
+        "theta_error": 0.1678269851428562
+      },
+      "prior_theta_error": 0.03262583017349241,
+      "seconds": 26.7,
+      "seed": 73,
+      "truth": {
+        "brightness": 0.6080945134162903,
+        "geometry": {
+          "penumbra": 0.046933118411297506,
+          "phi_end": 0.900690672901339,
+          "phi_start": 0.13693584031121045,
+          "reversed": false
+        },
+        "rgb": [
+          0.6094449758529663,
+          0.09129571914672852,
+          0.3970242142677307
+        ],
+        "shape_code": 1,
+        "theta": 0.6826258301734924
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0,
+        "std_theta": 5.791783864978568e-15,
+        "theta_error": 0.23411697149276733
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 1609.0963465500772,
+        "background_delta": 9.773321759545182,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.05,
+          "reversed": true
+        },
+        "best_chi2": 12.588611988604514,
+        "birge": 0.23312244423341694,
+        "box_refuted_fraction": 0.025694444444444464,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.05,
+              "reversed": true
+            },
+            "best_chi2": 12.588611988604514,
+            "birge": 0.23312244423341694,
+            "delta_chi2": 29.685745844120873,
+            "forward_survivors": 700,
+            "kept": 1403,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 37,
+            "refuted_share": 0.025694444444444464,
+            "reversed_survivors": 703,
+            "seconds": 0.7,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1403,
+        "noise_correlation": 5.233335313713835,
+        "noise_sigma": [
+          0.00021316981057923,
+          0.0002509458252042533,
+          0.000282481796489312
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (10x the survival threshold), but the photo does not decide the corner geometry: 3% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 226.18568381123757,
+        "covers68": false,
+        "covers90": false,
+        "ess": 44.77815160218903,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.11238114974263952,
+          0.18583653125665694
+        ],
+        "interval90": [
+          0.09281877793480083,
+          0.18973119843260305
+        ],
+        "mean_rgb": [
+          0.4459692123993635,
+          0.5329826459891155,
+          0.6910121033622288
+        ],
+        "mean_theta": 0.15012726318683986,
+        "noise_correlation": 5.233335313713835,
+        "pool_size": 12000,
+        "std_theta": 0.03202816814197301,
+        "temperature": 1.2226253178985815,
+        "theta_error": 0.12485942113551732
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 228.11495158866518,
+        "covers68": true,
+        "covers90": true,
+        "ess": 451.3541637170994,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.2010619178194751,
+          0.30376043186926605
+        ],
+        "interval90": [
+          0.15722365814021944,
+          0.32067668186851556
+        ],
+        "mean_rgb": [
+          0.46784013033304866,
+          0.5657537806045079,
+          0.7367954159842215
+        ],
+        "mean_theta": 0.2529375708689088,
+        "noise_correlation": 5.233335313713835,
+        "pool_size": 12000,
+        "std_theta": 0.05101597418639063,
+        "temperature": 1.233053792371163,
+        "theta_error": 0.0220491134534484
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 225.95051739852332,
+        "covers68": true,
+        "covers90": true,
+        "ess": 756.249981965793,
+        "geometry_ess": 28.78100346357078,
+        "interval68": [
+          0.12648374908572743,
+          0.30738293210263484
+        ],
+        "interval90": [
+          0.09871348825417561,
+          0.3660965194966639
+        ],
+        "mean_rgb": [
+          0.4701518169870287,
+          0.5647563697315381,
+          0.737784833862879
+        ],
+        "mean_theta": 0.21753276157761325,
+        "noise_correlation": 5.233335313713835,
+        "pool_size": 12000,
+        "std_theta": 0.0829468303274196,
+        "temperature": 1.221354148100126,
+        "theta_error": 0.057453922744743924
+      },
+      "prior_theta_error": 0.37501331567764284,
+      "seconds": 26.6,
+      "seed": 79,
+      "truth": {
+        "brightness": 0.5827274322509766,
+        "geometry": {
+          "penumbra": 0.04276675311490548,
+          "phi_end": 1.130036557455913,
+          "phi_start": 0.22075686403731853,
+          "reversed": false
+        },
+        "rgb": [
+          0.19440513849258423,
+          0.23029357194900513,
+          0.35002073645591736
+        ],
+        "shape_code": 0,
+        "theta": 0.2749866843223572
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0803673267364502,
+        "std_theta": 0.0034922726918011904,
+        "theta_error": 0.09763804078102112
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 3616.7856277449832,
+        "background_delta": 18.080059114261132,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.1,
+          "reversed": true
+        },
+        "best_chi2": 11.1707938667292,
+        "birge": 0.2068665530875778,
+        "box_refuted_fraction": 0.019444444444444486,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.1,
+              "reversed": true
+            },
+            "best_chi2": 11.1707938667292,
+            "birge": 0.2068665530875778,
+            "delta_chi2": 36.240870485915245,
+            "forward_survivors": 716,
+            "kept": 1412,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 28,
+            "refuted_share": 0.019444444444444486,
+            "reversed_survivors": 696,
+            "seconds": 0.77,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1412,
+        "noise_correlation": 6.388946004913369,
+        "noise_sigma": [
+          0.00023085149791681245,
+          0.0003554804590933067,
+          0.00023481284086035036
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (18x the survival threshold), but the photo does not decide the corner geometry: 2% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 175.61337030754342,
+        "covers68": false,
+        "covers90": false,
+        "ess": 8.985896155286296,
+        "geometry_ess": 1.0,
+        "interval68": [
+          1.078186820569282,
+          1.1475831376561243
+        ],
+        "interval90": [
+          1.0781486964404807,
+          1.1686111557028118
+        ],
+        "mean_rgb": [
+          0.6121587279402243,
+          0.8456927851464888,
+          0.16231271771969644
+        ],
+        "mean_theta": 1.1148069585698497,
+        "noise_correlation": 6.388946004913369,
+        "pool_size": 12000,
+        "std_theta": 0.03048588193990976,
+        "temperature": 1.0,
+        "theta_error": 0.11954505099233503
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 170.95496774440915,
+        "covers68": true,
+        "covers90": true,
+        "ess": 14.709542235760274,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.9340274040826952,
+          0.9967113403224372
+        ],
+        "interval90": [
+          0.9340055004756389,
+          1.0306193870501958
+        ],
+        "mean_rgb": [
+          0.5318485988038785,
+          0.7388382200648217,
+          0.13212557728535507
+        ],
+        "mean_theta": 0.9641810328350977,
+        "noise_correlation": 6.388946004913369,
+        "pool_size": 12000,
+        "std_theta": 0.03580575288100823,
+        "temperature": 1.0,
+        "theta_error": 0.031080874742416942
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 169.35230378883335,
+        "covers68": true,
+        "covers90": true,
+        "ess": 247.1111628271918,
+        "geometry_ess": 36.837571338932875,
+        "interval68": [
+          0.8671821200426149,
+          1.0832174771434022
+        ],
+        "interval90": [
+          0.8054214364697075,
+          1.1284935553228708
+        ],
+        "mean_rgb": [
+          0.5376860036955693,
+          0.7524880829800957,
+          0.13237272772916417
+        ],
+        "mean_theta": 0.967049122461863,
+        "noise_correlation": 6.388946004913369,
+        "pool_size": 12000,
+        "std_theta": 0.09911775210393647,
+        "temperature": 1.0,
+        "theta_error": 0.028212785115651617
+      },
+      "prior_theta_error": 0.3452619075775146,
+      "seconds": 27.7,
+      "seed": 83,
+      "truth": {
+        "brightness": 1.1117737293243408,
+        "geometry": {
+          "penumbra": 0.06653898606110822,
+          "phi_end": 1.0197256711392986,
+          "phi_start": 0.35808220023939297,
+          "reversed": false
+        },
+        "rgb": [
+          0.598206102848053,
+          0.8530593514442444,
+          0.189045712351799
+        ],
+        "shape_code": 1,
+        "theta": 0.9952619075775146
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0,
+        "std_theta": 2.411544812730426e-07,
+        "theta_error": 0.21251654624938965
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 747.3131382180031,
+        "background_delta": 3.5957923720784386,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.057153022361263295,
+          "phi_end": 1.2000000000000004,
+          "phi_start": 0.0,
+          "reversed": true
+        },
+        "best_chi2": 24.82663425122782,
+        "birge": 0.4597524861338485,
+        "box_refuted_fraction": 0.011111111111111072,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.057153022361263295,
+              "phi_end": 1.2000000000000004,
+              "phi_start": 0.0,
+              "reversed": true
+            },
+            "best_chi2": 24.82663425122782,
+            "birge": 0.4597524861338485,
+            "delta_chi2": 36.51356749803319,
+            "forward_survivors": 719,
+            "kept": 1424,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 16,
+            "refuted_share": 0.011111111111111072,
+            "reversed_survivors": 705,
+            "seconds": 0.71,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1424,
+        "noise_correlation": 6.437020084337037,
+        "noise_sigma": [
+          0.00022259629497161295,
+          0.00023683983225885631,
+          0.00018681715014485
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (4x the survival threshold), but the photo does not decide the corner geometry: 1% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 187.56409950629265,
+        "covers68": true,
+        "covers90": true,
+        "ess": 576.2834463199316,
+        "geometry_ess": 1.0,
+        "interval68": [
+          1.1150761267219518,
+          1.1975053223946195
+        ],
+        "interval90": [
+          1.0956337135399712,
+          1.2121807400478508
+        ],
+        "mean_rgb": [
+          0.719614847525191,
+          0.1795568291230811,
+          0.5672960311206916
+        ],
+        "mean_theta": 1.1559125543353281,
+        "noise_correlation": 6.437020084337037,
+        "pool_size": 12000,
+        "std_theta": 0.036177441417838845,
+        "temperature": 1.0138599973313116,
+        "theta_error": 0.025121605467530284
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 190.12607816753416,
+        "covers68": true,
+        "covers90": true,
+        "ess": 972.9796939488463,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.9675977053779827,
+          1.1352070550856312
+        ],
+        "interval90": [
+          0.9299481731202158,
+          1.1905818914789426
+        ],
+        "mean_rgb": [
+          0.7194149676162369,
+          0.17552357075629793,
+          0.5560312069451867
+        ],
+        "mean_theta": 1.0467119309698116,
+        "noise_correlation": 6.437020084337037,
+        "pool_size": 12000,
+        "std_theta": 0.07816256973226322,
+        "temperature": 1.0277085306353198,
+        "theta_error": 0.08407901789798622
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 187.4613476727609,
+        "covers68": true,
+        "covers90": true,
+        "ess": 969.7998357600242,
+        "geometry_ess": 40.79429758782075,
+        "interval68": [
+          0.9413936570092948,
+          1.1690116446311722
+        ],
+        "interval90": [
+          0.8694925319898859,
+          1.204578993883491
+        ],
+        "mean_rgb": [
+          0.7245955962151736,
+          0.18185585191793846,
+          0.5674523550362245
+        ],
+        "mean_theta": 1.0558341073437658,
+        "noise_correlation": 6.437020084337037,
+        "pool_size": 12000,
+        "std_theta": 0.10308609714962186,
+        "temperature": 1.0133045820149238,
+        "theta_error": 0.07495684152403204
+      },
+      "prior_theta_error": 0.48079094886779783,
+      "seconds": 26.1,
+      "seed": 89,
+      "truth": {
+        "brightness": 1.0183696746826172,
+        "geometry": {
+          "penumbra": 0.09358661857146644,
+          "phi_end": 0.9590138652637825,
+          "phi_start": 0.11018596542243375,
+          "reversed": false
+        },
+        "rgb": [
+          0.5941998958587646,
+          0.11638607084751129,
+          0.3948219418525696
+        ],
+        "shape_code": 0,
+        "theta": 1.1307909488677979
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0,
+        "std_theta": 1.0754857449057909e-08,
+        "theta_error": 0.015619874000549316
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 21847.347148100227,
+        "background_delta": 91.78392379560951,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.1000000000000003,
+          "phi_start": 0.45,
+          "reversed": true
+        },
+        "best_chi2": 19.136997537063735,
+        "birge": 0.35438884327895803,
+        "box_refuted_fraction": 0.07013888888888886,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.1000000000000003,
+              "phi_start": 0.45,
+              "reversed": true
+            },
+            "best_chi2": 19.136997537063735,
+            "birge": 0.35438884327895803,
+            "delta_chi2": 43.21859470253616,
+            "forward_survivors": 665,
+            "kept": 1339,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 101,
+            "refuted_share": 0.07013888888888886,
+            "reversed_survivors": 674,
+            "seconds": 0.74,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1339,
+        "noise_correlation": 7.619057275957294,
+        "noise_sigma": [
+          0.00040054948666849385,
+          0.00025641782562342146,
+          0.0001970249359374209
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (92x the survival threshold), but the photo does not decide the corner geometry: 7% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 268.4958535703598,
+        "covers68": false,
+        "covers90": false,
+        "ess": 1.0015892737855299,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.23270807215189665,
+          0.23270993984463642
+        ],
+        "interval90": [
+          0.2327077700251299,
+          0.23271024197140316
+        ],
+        "mean_rgb": [
+          0.45450001649160365,
+          0.2799303087310894,
+          0.3913042414792358
+        ],
+        "mean_theta": 0.2327043054471706,
+        "noise_correlation": 7.619057275957294,
+        "pool_size": 12000,
+        "std_theta": 0.00046212170080521563,
+        "temperature": 1.4513289382181613,
+        "theta_error": 0.1410689117540623
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 191.6174754773734,
+        "covers68": false,
+        "covers90": true,
+        "ess": 39.46646507400175,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.3441067668388783,
+          0.3698542095263627
+        ],
+        "interval90": [
+          0.33712621342993226,
+          0.3780331687124332
+        ],
+        "mean_rgb": [
+          0.7681019148684405,
+          0.40900663218334826,
+          0.6520222984585545
+        ],
+        "mean_theta": 0.3569695792948981,
+        "noise_correlation": 7.619057275957294,
+        "pool_size": 12000,
+        "std_theta": 0.012467022832909411,
+        "temperature": 1.035770137715532,
+        "theta_error": 0.016803637906334823
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 191.43044197512634,
+        "covers68": true,
+        "covers90": true,
+        "ess": 46.392700608201714,
+        "geometry_ess": 15.575037573874763,
+        "interval68": [
+          0.24404940383600296,
+          0.4170013714144534
+        ],
+        "interval90": [
+          0.1727235168697076,
+          0.4208209478342832
+        ],
+        "mean_rgb": [
+          0.8099967061558946,
+          0.42621500450253824,
+          0.6819600721526282
+        ],
+        "mean_theta": 0.33417045566326575,
+        "noise_correlation": 7.619057275957294,
+        "pool_size": 12000,
+        "std_theta": 0.08400394508473756,
+        "temperature": 1.0347591458114938,
+        "theta_error": 0.03960276153796716
+      },
+      "prior_theta_error": 0.2762267827987671,
+      "seconds": 26.0,
+      "seed": 97,
+      "truth": {
+        "brightness": 1.0469173192977905,
+        "geometry": {
+          "penumbra": 0.08189231625976785,
+          "phi_end": 1.245272026356314,
+          "phi_start": 0.20940162253768016,
+          "reversed": false
+        },
+        "rgb": [
+          0.8809880018234253,
+          0.4742330312728882,
+          0.8117477297782898
+        ],
+        "shape_code": 1,
+        "theta": 0.3737732172012329
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.5750068426132202,
+        "std_theta": 0.015944404527544975,
+        "theta_error": 0.08110201358795166
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 11405.262622487546,
+        "background_delta": 102.50449571283202,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.0,
+          "reversed": true
+        },
+        "best_chi2": 18.290474409666693,
+        "birge": 0.33871248906790175,
+        "box_refuted_fraction": 0.23402777777777772,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.0,
+              "reversed": true
+            },
+            "best_chi2": 18.290474409666693,
+            "birge": 0.33871248906790175,
+            "delta_chi2": 20.187590190577346,
+            "forward_survivors": 572,
+            "kept": 1103,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 337,
+            "refuted_share": 0.23402777777777772,
+            "reversed_survivors": 531,
+            "seconds": 0.74,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1103,
+        "noise_correlation": 3.5588941978378696,
+        "noise_sigma": [
+          0.00024545682397144366,
+          0.00018380146458028598,
+          0.00019559463380278738
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (103x the survival threshold), but the photo does not decide the corner geometry: 23% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 47,
+      "posterior_default_geometry": {
+        "best_chi2": 349.97785860496566,
+        "covers68": false,
+        "covers90": false,
+        "ess": 46.67241663448086,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.2174360888074355,
+          0.23595249252317596
+        ],
+        "interval90": [
+          0.19223778352895465,
+          0.2420204592735443
+        ],
+        "mean_rgb": [
+          0.7802641285629409,
+          0.26201820599679393,
+          0.06977030342562324
+        ],
+        "mean_theta": 0.22328513451245674,
+        "noise_correlation": 3.5588941978378696,
+        "pool_size": 12000,
+        "std_theta": 0.01785993153548481,
+        "temperature": 1.89177220867549,
+        "theta_error": 0.08249128274294487
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 321.626476139947,
+        "covers68": true,
+        "covers90": true,
+        "ess": 44.137847094931416,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.2950119750898603,
+          0.3156027216255677
+        ],
+        "interval90": [
+          0.2846240745439252,
+          0.31911906745448415
+        ],
+        "mean_rgb": [
+          0.7668969948728361,
+          0.2581021421493021,
+          0.07288485602705524
+        ],
+        "mean_theta": 0.3049378939980511,
+        "noise_correlation": 3.5588941978378696,
+        "pool_size": 12000,
+        "std_theta": 0.010694080781409078,
+        "temperature": 1.738521492648362,
+        "theta_error": 0.0008385232573505097
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 316.7102912646446,
+        "covers68": true,
+        "covers90": true,
+        "ess": 31.32889086317397,
+        "geometry_ess": 12.202143930144072,
+        "interval68": [
+          0.21151506247410506,
+          0.41440413245114993
+        ],
+        "interval90": [
+          0.19592967716378537,
+          0.4365939745711517
+        ],
+        "mean_rgb": [
+          0.7345205173649841,
+          0.24579922325578812,
+          0.06705346252227148
+        ],
+        "mean_theta": 0.29984126359374413,
+        "noise_correlation": 3.5588941978378696,
+        "pool_size": 12000,
+        "std_theta": 0.08229186222630552,
+        "temperature": 1.71194752034943,
+        "theta_error": 0.005935153661657477
+      },
+      "prior_theta_error": 0.3442235827445984,
+      "seconds": 26.0,
+      "seed": 101,
+      "truth": {
+        "brightness": 1.0866819620132446,
+        "geometry": {
+          "penumbra": 0.059171635459092965,
+          "phi_end": 1.2899570799237756,
+          "phi_start": 0.12093493308114736,
+          "reversed": false
+        },
+        "rgb": [
+          0.8484763503074646,
+          0.31046175956726074,
+          0.06673134863376617
+        ],
+        "shape_code": 1,
+        "theta": 0.3057764172554016
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0,
+        "std_theta": 2.541058918836825e-08,
+        "theta_error": 0.040061771869659424
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 14111.434357748125,
+        "background_delta": 84.95551797159749,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.040275054149409545,
+          "phi_end": 1.2500000000000004,
+          "phi_start": 0.05,
+          "reversed": true
+        },
+        "best_chi2": 8.587665880175454,
+        "birge": 0.15903084963287878,
+        "box_refuted_fraction": 0.053472222222222254,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.040275054149409545,
+              "phi_end": 1.2500000000000004,
+              "phi_start": 0.05,
+              "reversed": true
+            },
+            "best_chi2": 8.587665880175454,
+            "birge": 0.15903084963287878,
+            "delta_chi2": 30.16715312137814,
+            "forward_survivors": 687,
+            "kept": 1363,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 77,
+            "refuted_share": 0.053472222222222254,
+            "reversed_survivors": 676,
+            "seconds": 0.78,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1363,
+        "noise_correlation": 5.31820317310933,
+        "noise_sigma": [
+          0.0002252722328774753,
+          0.0003414213999773303,
+          0.0003115196267701686
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (85x the survival threshold), but the photo does not decide the corner geometry: 5% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 131.548213953526,
+        "covers68": false,
+        "covers90": false,
+        "ess": 3.803839459014616,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.7463791479415784,
+          0.7500413081835995
+        ],
+        "interval90": [
+          0.7447751766535101,
+          0.75108157995074
+        ],
+        "mean_rgb": [
+          0.27598140027049833,
+          0.7996030111675867,
+          0.7675085658633485
+        ],
+        "mean_theta": 0.7472135219785805,
+        "noise_correlation": 5.31820317310933,
+        "pool_size": 12000,
+        "std_theta": 0.001999938484609839,
+        "temperature": 1.0,
+        "theta_error": 0.04012062213686751
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 113.43511660800094,
+        "covers68": true,
+        "covers90": true,
+        "ess": 7.0252497624752275,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.7843221508055855,
+          0.7881531386915631
+        ],
+        "interval90": [
+          0.7836252673414265,
+          0.7881617291714651
+        ],
+        "mean_rgb": [
+          0.26621607435916,
+          0.765707687941341,
+          0.7627033892941971
+        ],
+        "mean_theta": 0.7858636427741106,
+        "noise_correlation": 5.31820317310933,
+        "pool_size": 12000,
+        "std_theta": 0.001924272593479352,
+        "temperature": 1.0,
+        "theta_error": 0.0014705013413374157
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 108.8695710637278,
+        "covers68": false,
+        "covers90": false,
+        "ess": 1.006263891722215,
+        "geometry_ess": 1.0062636388643678,
+        "interval68": [
+          0.563448634813925,
+          0.5635919979103992
+        ],
+        "interval90": [
+          0.5634254437247895,
+          0.5636151889995347
+        ],
+        "mean_rgb": [
+          0.2583258089340235,
+          0.6834395219749967,
+          0.6935820251045584
+        ],
+        "mean_theta": 0.5640622671165988,
+        "noise_correlation": 5.31820317310933,
+        "pool_size": 12000,
+        "std_theta": 0.007887886485546699,
+        "temperature": 1.0,
+        "theta_error": 0.2232718769988492
+      },
+      "prior_theta_error": 0.13733414411544798,
+      "seconds": 26.0,
+      "seed": 103,
+      "truth": {
+        "brightness": 1.0616981983184814,
+        "geometry": {
+          "penumbra": 0.041493448258495345,
+          "phi_end": 1.2300267122717343,
+          "phi_start": 0.1807811804172012,
+          "reversed": false
+        },
+        "rgb": [
+          0.2516726553440094,
+          0.7354263067245483,
+          0.7670333385467529
+        ],
+        "shape_code": 0,
+        "theta": 0.787334144115448
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0001217126846313,
+        "std_theta": 0.0003351735358592123,
+        "theta_error": 0.033667027950286865
+      }
+    },
+    {
+      "funnel": {
+        "background_chi2": 7071.868848797742,
+        "background_delta": 38.29337282581926,
+        "background_refuted": true,
+        "best": {
+          "penumbra": 0.08110399933689352,
+          "phi_end": 1.3000000000000005,
+          "phi_start": 0.1,
+          "reversed": false
+        },
+        "best_chi2": 15.158667005712935,
+        "birge": 0.28071605566135066,
+        "box_refuted_fraction": 0.01388888888888884,
+        "dof": 54,
+        "geometry_decided": false,
+        "ledger": [
+          {
+            "best": {
+              "penumbra": 0.08110399933689352,
+              "phi_end": 1.3000000000000005,
+              "phi_start": 0.1,
+              "reversed": false
+            },
+            "best_chi2": 15.158667005712935,
+            "birge": 0.28071605566135066,
+            "delta_chi2": 33.488662007334014,
+            "forward_survivors": 716,
+            "kept": 1420,
+            "level": 1,
+            "n_angle": 12,
+            "n_measure": 32,
+            "refuted": 20,
+            "refuted_share": 0.01388888888888884,
+            "reversed_survivors": 704,
+            "seconds": 0.68,
+            "step": [
+              0.05,
+              0.05,
+              0.35
+            ],
+            "stopped": "too little refuted to refine: the geometry valley is wider than this level's grid, so finer cells would only subdivide undecided territory",
+            "tested": 1440,
+            "truth_still_covered": true
+          }
+        ],
+        "model_adequate": true,
+        "n_survivors": 1420,
+        "noise_correlation": 5.9037559107418165,
+        "noise_sigma": [
+          0.00025366921043668217,
+          0.0002648846708510358,
+          0.00020647988498903396
+        ],
+        "reversed_refuted": false,
+        "status": "undecided-geometry",
+        "survivor_ranges": {
+          "penumbra": [
+            0.02,
+            0.11509205352011467
+          ],
+          "phi_end": [
+            0.75,
+            1.3000000000000005
+          ],
+          "phi_start": [
+            0.0,
+            0.45
+          ],
+          "reversed": [
+            false,
+            true
+          ]
+        },
+        "temperature": 1.0,
+        "verdict": "Occluder signature present (38x the survival threshold), but the photo does not decide the corner geometry: 1% of the search box is refuted, reversed edge not refuted. Hidden angles are defined only up to an assumed geometry."
+      },
+      "geometry_prior_size": 48,
+      "geometry_prior_surviving": 48,
+      "posterior_default_geometry": {
+        "best_chi2": 140.85967870150216,
+        "covers68": false,
+        "covers90": false,
+        "ess": 55.39183077111325,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.9526452846839004,
+          0.9663629366194809
+        ],
+        "interval90": [
+          0.9461967107230096,
+          0.971968150967769
+        ],
+        "mean_rgb": [
+          0.38283129016682593,
+          0.2912499322285138,
+          0.6381735558874146
+        ],
+        "mean_theta": 0.9598806346221529,
+        "noise_correlation": 5.9037559107418165,
+        "pool_size": 12000,
+        "std_theta": 0.007309613306123188,
+        "temperature": 1.0,
+        "theta_error": 0.1360654080672823
+      },
+      "posterior_oracle_geometry": {
+        "best_chi2": 134.79443299463756,
+        "covers68": true,
+        "covers90": true,
+        "ess": 3.183631370989186,
+        "geometry_ess": 1.0,
+        "interval68": [
+          0.8127285604077537,
+          0.8427321795829372
+        ],
+        "interval90": [
+          0.8127280018173358,
+          0.8427329241093866
+        ],
+        "mean_rgb": [
+          0.41076807648929237,
+          0.29223031257299387,
+          0.6736633513659065
+        ],
+        "mean_theta": 0.8300261334788979,
+        "noise_correlation": 5.9037559107418165,
+        "pool_size": 12000,
+        "std_theta": 0.013514863664231878,
+        "temperature": 1.0,
+        "theta_error": 0.00621090692402726
+      },
+      "posterior_prior_marginal": {
+        "best_chi2": 136.59804425118494,
+        "covers68": true,
+        "covers90": true,
+        "ess": 49.673316024464484,
+        "geometry_ess": 19.01973848310102,
+        "interval68": [
+          0.7207941257887904,
+          0.8819640674808923
+        ],
+        "interval90": [
+          0.671568797326724,
+          0.9264170602590504
+        ],
+        "mean_rgb": [
+          0.45625872412293017,
+          0.34855287365602766,
+          0.7472216318906949
+        ],
+        "mean_theta": 0.809623773652846,
+        "noise_correlation": 5.9037559107418165,
+        "pool_size": 12000,
+        "std_theta": 0.07755139155758792,
+        "temperature": 1.0,
+        "theta_error": 0.014191452902024615
+      },
+      "prior_theta_error": 0.17381522655487058,
+      "seconds": 26.5,
+      "seed": 107,
+      "truth": {
+        "brightness": 0.9173818826675415,
+        "geometry": {
+          "penumbra": 0.03656691629306265,
+          "phi_end": 1.0323299498107148,
+          "phi_start": 0.18714193622414171,
+          "reversed": false
+        },
+        "rgb": [
+          0.2928222119808197,
+          0.2577865421772003,
+          0.5766474008560181
+        ],
+        "shape_code": 1,
+        "theta": 0.8238152265548706
+      },
+      "truth_survived_all_levels": true,
+      "v0": {
+        "ess": 1.0000007152557373,
+        "std_theta": 5.314728696248494e-05,
+        "theta_error": 0.20920538902282715
+      }
+    }
+  ],
+  "schema": "sighextraimage.gate2.v0",
+  "seeds": [
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    83,
+    89,
+    97,
+    101,
+    103,
+    107
+  ]
+}

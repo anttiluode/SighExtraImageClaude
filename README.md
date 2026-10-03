@@ -1,3 +1,34 @@
+# SighExtraImage — Claude (Opus 5.5) version
+
+This is a fork of [anttiluode/SighExtraImage](https://github.com/anttiluode/SighExtraImage) (imported at `099d605`). It asks one more question of the photo: **before using the boundary light, does the photo actually tell us the corner geometry?** The idea comes from [Varjoluotain](https://github.com/anttiluode/Varjoluotain)'s occluder funnel: treat each geometry as a hypothesis, refute what the photo rules out, and pay for detail only where it can't decide.
+
+**Gate 2 result: fails narrowly** (2 of 4 preregistered criteria). Full write-up: [`results/gate2-v0.md`](results/gate2-v0.md).
+
+What this version established:
+
+1. **The v0 ESS collapse was a unit bug.** The affine residual is a fraction of variance, but it was divided by 2·σ² with σ = 0.01 intensity. Fixing it with noise measured from the photo (split-half rows), a Birge-ratio temperature and exact importance weights takes median ESS from **1.0 → 48** on held-out scenes.
+2. **The Gate 0 "mirrored wrong physics" control was a relabeling.** `WrongCornerTransport` at θ predicts exactly what `CornerTransport` predicts at 1.30 − θ (difference 4e-7). No data can prefer either, so "correct beats mirrored" measured the labeling convention, not evidence (`test_mirrored_transport_is_a_relabeling_of_theta`).
+3. **One boundary photo does not decide the corner geometry.** On 16/16 held-out scenes the funnel refutes a median 3.6% of the search box, and it never refutes the reversed edge. A 1-D penumbra profile is a cumulative integral of the hidden radiance, so remapping the strip's angle axis is absorbed by the radiance.
+4. **What the photo does decide is whether there is a corner signal at all.** It detected 16/16 signal scenes and correctly passed 14/16 null scenes; the two false alarms are just over threshold.
+5. **Assuming a geometry is the dangerous step.** With the default geometry the 90% interval covers the true hidden angle **2/16** times. Marginalising over a geometry prior gives 11/16 (gate needed 12) and the oracle geometry gives 14/16. The misses trace to the sampler collapsing onto one geometry mode, not to the likelihood.
+
+What changed in the code:
+
+- `geometry_funnel.py`: hypotheses, NNLS refutation, the funnel, split-half noise, the calibrated posterior.
+- `gate2.py`: the preregistered benchmark (`sighextraimage gate2`).
+- `sighextraimage funnel photo.jpg`: prints what a real photo's boundary decides.
+- **Photo mode:** `inspect_photo` reports the geometry verdict. Light-guided outpainting is now **refused** when the boundary has no signal or no corner geometry fits it. When the geometry is undecided, it runs with a warning that the placement of hidden light along the extension is an assumption.
+
+The protocol was committed before the held-out run: [`docs/superpowers/specs/2026-10-03-gate2-geometry-funnel-design.md`](docs/superpowers/specs/2026-10-03-gate2-geometry-funnel-design.md).
+
+Related work: the corner camera (Bouman et al., ICCV 2017) and 2-D single-edge reconstruction ([Seidel et al.](https://arxiv.org/abs/2006.09241)) take the corner's location as known and compute each floor pixel's angle from it. [SLD-Net](https://cvpr.thecvf.com/virtual/2026/poster/36296) (CVPR 2026) fuses a precision-weighted likelihood with a diffusion prior. All three agree with result 3: the geometry has to come from image geometry, not from the light. The real Varjoluotain analogue would locate the apex of the 2-D penumbra fan, which this renderer, collapsing rows, cannot represent.
+
+Known issue: `tests/test_inversion.py::test_tv_inversion_recovers_coarse_corner_angle_better_than_no_occluder` also fails on the unmodified upstream code under torch 2.14. It is a threshold that depends on numerics and is unrelated to this work.
+
+---
+
+*Original README follows.*
+
 # SighExtraImage
 
 First. Some serious attempts at this: 
