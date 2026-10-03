@@ -31,6 +31,18 @@ def build_parser() -> argparse.ArgumentParser:
     funnel.add_argument("--region", type=float, nargs=4, default=None, metavar=("X0", "Y0", "X1", "Y1"),
                         help="boundary region as image fractions")
     funnel.add_argument("--output", default=None, help="write the funnel receipt as JSON")
+    g3 = sub.add_parser("gate3", help="2-D penumbra fan: locate the wall corner (preregistered)")
+    g3.add_argument("--seeds", type=int, nargs="+", default=None)
+    g3.add_argument("--output", default="results/receipts/gate3-v0.json")
+    g3.add_argument("--workers", type=int, default=2)
+    g3.add_argument("--no-sweep", action="store_true")
+    fan = sub.add_parser("fan", help="Locate a wall corner from the light on the floor beside it")
+    fan.add_argument("image")
+    fan.add_argument("--region", type=float, nargs=4, default=None, metavar=("X0", "Y0", "X1", "Y1"),
+                     help="floor region as image fractions (exclude walls)")
+    fan.add_argument("--max-side", type=int, default=256)
+    fan.add_argument("--report", default=None, help="write an annotated PNG report")
+    fan.add_argument("--output", default=None, help="write the funnel receipt as JSON")
     outpaint = sub.add_parser("outpaint",help="Generate an image extension outside the photograph")
     outpaint.add_argument("image")
     outpaint.add_argument("--output",required=True,help="Output PNG path")
@@ -85,6 +97,30 @@ def main(argv: list[str] | None = None) -> int:
         for row in result.ledger:
             print(f"  level {row['level']}: tested {row['tested']}, refuted {row['refuted']}, "
                   f"best reduced chi2 {row['birge']:.2f}")
+        if args.output:
+            from .receipts import write_receipt
+            write_receipt(result.summary(), Path(args.output))
+            print(f"wrote {args.output}")
+        return 0
+    if args.command == "gate3":
+        from .gate3 import HELD_OUT_SEEDS, run_gate3
+        receipt = run_gate3(args.seeds or HELD_OUT_SEEDS, output=Path(args.output), workers=args.workers,
+                            sweep=not args.no_sweep)
+        for name, g in receipt["result"]["gates"].items():
+            print(f"{name}: {g['observed']} (required {g['required']}) -> {'pass' if g['pass'] else 'FAIL'}")
+        print(f"Gate 3 {'PASSED' if receipt['result']['passed'] else 'FAILED'}; wrote {args.output}")
+        return 0
+    if args.command == "fan":
+        from .fan import load_photo, locate_apex, report_image
+        image, mask = load_photo(args.image, args.max_side, args.region)
+        result = locate_apex(image, mask=mask)
+        print(result.verdict)
+        for row in result.ledger:
+            print(f"  level {row['level']}: tested {row['tested']}, unrefuted {row['unrefuted']}, "
+                  f"best reduced chi2 {row['birge']:.2f}")
+        if args.report:
+            report_image(image, result).save(args.report)
+            print(f"wrote {args.report}")
         if args.output:
             from .receipts import write_receipt
             write_receipt(result.summary(), Path(args.output))
