@@ -2,6 +2,17 @@
 
 This is a fork of [anttiluode/SighExtraImage](https://github.com/anttiluode/SighExtraImage) (imported at `099d605`). It asks one more question of the photo: **before using the boundary light, does the photo actually tell us the corner geometry?** The idea comes from [Varjoluotain](https://github.com/anttiluode/Varjoluotain)'s occluder funnel: treat each geometry as a hypothesis, refute what the photo rules out, and pay for detail only where it can't decide.
 
+## Gate 4 — certify before claiming
+
+Gate 3 sometimes called a fragment of a long valley a "point". Gate 4 checks before claiming: it probes around the best fit, finds the 1–2 px wide valley that a single shadow edge leaves, and walks along it. The corner is reported as a point only if nothing else survives. Write-up: [`results/gate4-v0.md`](results/gate4-v0.md).
+
+- **Two-edge scenes:** 6/6 located within 8 px. Across all 48 signal scenes, 9 of 10 located verdicts are within 7.6 px.
+- **Low-signal sweeps:** 0 confident errors in 32 scenes (Gate 3: 4).
+- **No false alarms:** 0/16.
+- **Fails on one scene (seed 179):** a single edge, fitted at the far end of its own line with the side flipped, 348 px off. That fit explains the light by cancelling contributions 36× larger than the data; every correct located fit stays below 0.9×. That ratio is the next gate's hypothesis.
+
+---
+
 ## Gate 3 — locating the corner from the light on the floor
 
 ![Corner located from floor light](results/fan/report71.png)
