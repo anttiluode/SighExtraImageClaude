@@ -36,6 +36,10 @@ def build_parser() -> argparse.ArgumentParser:
     g3.add_argument("--output", default="results/receipts/gate3-v0.json")
     g3.add_argument("--workers", type=int, default=2)
     g3.add_argument("--no-sweep", action="store_true")
+    g4 = sub.add_parser("gate4", help="Certified corner location (preregistered)")
+    g4.add_argument("--seeds", type=int, nargs="+", default=None)
+    g4.add_argument("--output", default="results/receipts/gate4-v0.json")
+    g4.add_argument("--workers", type=int, default=2)
     fan = sub.add_parser("fan", help="Locate a wall corner from the light on the floor beside it")
     fan.add_argument("image")
     fan.add_argument("--region", type=float, nargs=4, default=None, metavar=("X0", "Y0", "X1", "Y1"),
@@ -110,20 +114,35 @@ def main(argv: list[str] | None = None) -> int:
             print(f"{name}: {g['observed']} (required {g['required']}) -> {'pass' if g['pass'] else 'FAIL'}")
         print(f"Gate 3 {'PASSED' if receipt['result']['passed'] else 'FAILED'}; wrote {args.output}")
         return 0
+    if args.command == "gate4":
+        from .gate4 import HELD_OUT_SEEDS, run_gate4
+        receipt = run_gate4(args.seeds or HELD_OUT_SEEDS, output=Path(args.output), workers=args.workers)
+        for name, g in receipt["result"]["gates"].items():
+            print(f"{name}: {g['observed']} (required {g['required']}) -> {'pass' if g['pass'] else 'FAIL'}")
+        print(f"Gate 4 {'PASSED' if receipt['result']['passed'] else 'FAILED'}; wrote {args.output}")
+        return 0
     if args.command == "fan":
-        from .fan import load_photo, locate_apex, report_image
+        from .fan import certify, load_photo, locate_apex, report_image
         image, mask = load_photo(args.image, args.max_side, args.region)
         result = locate_apex(image, mask=mask)
-        print(result.verdict)
         for row in result.ledger:
             print(f"  level {row['level']}: tested {row['tested']}, unrefuted {row['unrefuted']}, "
                   f"best reduced chi2 {row['birge']:.2f}")
+        cert = None
+        if result.status in ("no-signal", "refuted-model"):
+            print(result.verdict)
+        else:
+            cert = certify(image, result, mask=mask)
+            print(cert.verdict)
         if args.report:
-            report_image(image, result).save(args.report)
+            report_image(image, result, certificate=cert).save(args.report)
             print(f"wrote {args.report}")
         if args.output:
             from .receipts import write_receipt
-            write_receipt(result.summary(), Path(args.output))
+            out = {"funnel": result.summary()}
+            if cert is not None:
+                out["certificate"] = cert.summary()
+            write_receipt(out, Path(args.output))
             print(f"wrote {args.output}")
         return 0
     if args.command == "outpaint":

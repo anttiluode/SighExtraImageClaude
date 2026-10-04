@@ -234,7 +234,7 @@ class FanHypothesis:
 
 
 def fan_kernel(h: FanHypothesis, xy: np.ndarray, n_bins: int, size: float, block: float = 1.0,
-               sub: int = 4, n_radial: int = 2) -> np.ndarray:
+               sub: int = 4, n_radial: int = 2, amplitude: str = "radial") -> np.ndarray:
     """[N, n_radial*n_bins] columns: angular bin j x non-negative radial hat in log radius.
 
     Each column is averaged over sub x sub points inside the block, because the
@@ -255,6 +255,16 @@ def fan_kernel(h: FanHypothesis, xy: np.ndarray, n_bins: int, size: float, block
     r = np.log(np.maximum(np.hypot(dx, dy), 1.0))
     rho = (r - r.min()) / max(r.max() - r.min(), 1e-9)                       # log-radius in [0, 1]
     vis = 0.5 * (1 + np.tanh((ang[..., None] - th) / h.penumbra))            # [N, S, B]
+    if amplitude == "plane":
+        # Each edge's amplitude is a positive plane over the image: non-negative
+        # combinations of (1+u), (1-u), (1+v), (1-v), u and v in [-1, 1].
+        # Perspective makes the falloff behind an edge vary along it; the plane
+        # absorbs that without letting radius-about-the-apex pin the position.
+        u = (xy[:, 0] - xy[:, 0].min()) / max(np.ptp(xy[:, 0]), 1e-9) * 2 - 1
+        v = (xy[:, 1] - xy[:, 1].min()) / max(np.ptp(xy[:, 1]), 1e-9) * 2 - 1
+        vm = vis.mean(1)                                                      # [N, B]
+        return np.concatenate([vm * (1 + u)[:, None], vm * (1 - u)[:, None],
+                               vm * (1 + v)[:, None], vm * (1 - v)[:, None]], 1)
     nodes = np.linspace(0.0, 1.0, n_radial)
     width = 1.0 / max(n_radial - 1, 1)
     cols = []
@@ -265,8 +275,8 @@ def fan_kernel(h: FanHypothesis, xy: np.ndarray, n_bins: int, size: float, block
 
 
 def fan_misfit(h: FanHypothesis, m: BlockMeasurement, q: np.ndarray, n_bins: int, size: float,
-               return_fit: bool = False):
-    K = _proj(fan_kernel(h, m.xy, n_bins, size, m.block), q)
+               return_fit: bool = False, n_radial: int = 2, amplitude: str = "radial"):
+    K = _proj(fan_kernel(h, m.xy, n_bins, size, m.block, n_radial=n_radial, amplitude=amplitude), q)
     yp = _proj(m.y, q)
     total, coefs, fit = 0.0, [], np.zeros_like(yp)
     for c in range(3):
@@ -487,10 +497,17 @@ def load_photo(path: str, max_side: int = 256, region=None):
     return arr, np.ones(arr.shape[:2], bool)
 
 
-def report_image(image_srgb: np.ndarray, result: FanResult, scale: int = 2, truth_apex=None):
+def report_image(image_srgb: np.ndarray, result: FanResult, scale: int = 2, truth_apex=None, certificate=None):
     """Annotated report: photo with surviving corners (or line), residue map, hidden-angle panorama."""
     from PIL import Image, ImageDraw
     hgt, wid = image_srgb.shape[:2]
+    if certificate is not None:
+        # draw what the certificate decided instead of the funnel's fragment
+        from types import SimpleNamespace
+        result = SimpleNamespace(
+            survivors=[SimpleNamespace(apex_x=x, apex_y=y) for x, y, _ in certificate.survivors],
+            status=certificate.status, best=certificate.best, line_point=certificate.line_point,
+            line_dir=certificate.line_dir, residue=result.residue, panorama=result.panorama)
     # pad just enough to show the surviving apexes (capped at one image size)
     pts = np.array([[h.apex_x, h.apex_y] for h in result.survivors] + [[0, 0], [wid, hgt]])
     need = max(0.0, -pts.min(), (pts[:, 0] - wid).max(), (pts[:, 1] - hgt).max())
@@ -524,3 +541,237 @@ def report_image(image_srgb: np.ndarray, result: FanResult, scale: int = 2, trut
         canvas.paste(strip_im, (0, (hgt + 2 * pad) * scale + 20 * scale))
     d.text((8 * scale, (hgt + 2 * pad) * scale + 4), result.status + ": hidden-angle panorama (fan bins)", fill=(230, 230, 230))
     return canvas
+
+
+# ============================================================ certification ===
+def bin_image_angles(h: FanHypothesis, xy: np.ndarray, n_bins: int, block: float = 1.0, sub: int = 4) -> np.ndarray:
+    """Image angle (radians, atan2 convention) of each angular bin's edge, as built by fan_kernel."""
+    off = (np.arange(sub) + 0.5) / sub - 0.5
+    ox, oy = np.meshgrid(off * block, off * block)
+    P = xy[:, None, :] + np.stack([ox.ravel(), oy.ravel()], 1)[None]
+    dx = P[..., 0] - h.apex_x; dy = P[..., 1] - h.apex_y
+    c = math.atan2(dy.mean(), dx.mean())
+    ang = (np.arctan2(dy, dx) - c + math.pi) % (2 * math.pi) - math.pi
+    if h.hidden_ccw:
+        ang = -ang
+    pad = 3 * h.penumbra
+    th = np.linspace(ang.min() - pad, ang.max() + pad, n_bins)
+    return c - th if h.hidden_ccw else c + th
+
+
+def edge_clusters(contrib: np.ndarray, angles: np.ndarray, *, rel: float = 0.15, gap: float = 0.15) -> list[dict]:
+    """Distinct edges in a fitted fan.
+
+    ``contrib[j]`` is the energy bin j adds to the fitted image (after background
+    removal), not its raw coefficient: a bin whose column the background nearly
+    cancels can carry a huge coefficient and contribute nothing. Bins with
+    >= ``rel`` of the strongest bin's energy are grouped into clusters separated
+    by more than ``gap`` radians of image angle.
+    """
+    if contrib.max() <= 0:
+        return []
+    sig = np.flatnonzero(contrib >= rel * contrib.max())
+    order = sig[np.argsort(angles[sig])]
+    clusters, cur = [], [order[0]]
+    for a, b in zip(order, order[1:]):
+        if abs(angles[b] - angles[a]) > gap:
+            clusters.append(cur); cur = [b]
+        else:
+            cur.append(b)
+    clusters.append(cur)
+    out = []
+    for cl in clusters:
+        w = contrib[cl]
+        out.append({"angle": float((angles[cl] * w).sum() / w.sum()), "energy": float(w.sum()),
+                    "bins": [int(i) for i in cl]})
+    return sorted(out, key=lambda e: -e["energy"])
+
+
+def bin_contributions(h: FanHypothesis, m: "BlockMeasurement", q: np.ndarray, n_bins: int, size: float,
+                      coefs: np.ndarray, n_radial: int = 2) -> np.ndarray:
+    Kp = _proj(fan_kernel(h, m.xy, n_bins, size, m.block, n_radial=n_radial), q)
+    out = np.zeros(n_bins)
+    for j in range(n_bins):
+        cols = [j + k * n_bins for k in range(n_radial)]
+        part = Kp[:, cols] @ coefs[cols]                 # [N, 3]
+        out[j] = float(((part / m.sigma[None, :]) ** 2).sum())
+    return out
+
+
+@dataclass(frozen=True)
+class CertifyConfig:
+    block: int = 8
+    n_bins: int = 48
+    penumbras: tuple[float, ...] = (0.01, 0.03, 0.08)
+    ring_dirs: int = 24                         # coarse ring: catches broad ambiguity
+    ring_radii: tuple[float, ...] = (16.0, 32.0, 64.0, 128.0)
+    valley_radius: float = 24.0                 # fine ring for the narrow single-edge valley
+    valley_dirs: int = 72
+    valley_refine_deg: float = 0.5
+    walk_step: float = 12.0
+    walk_max: float = 512.0
+    walk_lateral: tuple[float, ...] = (-4.0, -2.0, 0.0, 2.0, 4.0)
+    located_px: float = 16.0
+    line_elongation: float = 4.0                # a survivor set this elongated is a line ...
+    line_width_px: float = 32.0                 # ... if it is at most this wide
+    edge_rel: float = 0.15
+    edge_gap: float = 0.15
+
+
+@dataclass
+class Certificate:
+    status: str
+    verdict: str
+    best: FanHypothesis
+    survivors: list[tuple[float, float, bool]]   # (x, y, hidden_ccw) of every evaluated point within threshold
+    evaluated: int
+    threshold: float
+    best_chi2: float
+    long_axis: float
+    short_axis: float
+    edges: list[dict]
+    line_point: np.ndarray
+    line_dir: np.ndarray
+    side_decided: bool
+    valley_rise: float                          # chi2 rise along the best valley direction at valley_radius
+
+    def summary(self) -> dict:
+        return {"status": self.status, "verdict": self.verdict, "best": self.best.as_dict(),
+                "n_survivors": len(self.survivors), "evaluated": self.evaluated,
+                "threshold": self.threshold, "best_chi2": self.best_chi2,
+                "long_axis_px": self.long_axis, "short_axis_px": self.short_axis,
+                "edges": self.edges, "n_edges": len(self.edges),
+                "line_point": self.line_point.tolist(), "line_dir": self.line_dir.tolist(),
+                "side_decided": self.side_decided, "valley_rise": self.valley_rise}
+
+
+def certify(image_srgb: np.ndarray, result: FanResult, config: CertifyConfig = CertifyConfig(), *,
+            mask: np.ndarray | None = None, funnel_config: FanConfig = FanConfig()) -> Certificate:
+    """Pay to check before claiming (Luotain's rule).
+
+    The funnel returns a best apex and a cloud of survivors. That cloud can be
+    a fragment: one shadow edge leaves a valley only 1-2 px wide along the
+    edge's line, which a coarse grid steps over. Certification therefore:
+
+    1. re-evaluates the survivors, the best apex on both hidden sides, and a
+       coarse ring of probes with the finest model;
+    2. finds the valley direction: chi2 on a fine ring (72 directions, then
+       0.5 deg refinement) at ``valley_radius``, taking the cheaper of each
+       antipodal pair because a single edge leaves a half-line;
+    3. walks the valley both ways, re-centring sideways at every step, until
+       the photo refutes it.
+
+    The corner is reported as a point only if every surviving position lies
+    within ``located_px``. Otherwise the line through the best apex along the
+    valley is reported: the corner is somewhere on it.
+    """
+    size = float(min(image_srgb.shape[:2]))
+    m = measure_blocks(image_srgb, config.block, mask)
+    q = background_basis_2d(m.xy, size, funnel_config.bg_order)
+    sig_rms = np.sqrt((_proj(m.y, q) ** 2).mean(0))
+    m.sigma = np.sqrt(m.sigma ** 2 + (funnel_config.model_error * sig_rms) ** 2)
+    cache: dict = {}
+
+    def cost(x, y, side, pens=config.penumbras):
+        key = (round(float(x), 2), round(float(y), 2), bool(side))
+        if key not in cache or (pens is config.penumbras and cache[key][2] is not config.penumbras):
+            vals = [(fan_misfit(FanHypothesis(float(x), float(y), bool(side), p), m, q, config.n_bins, size), p)
+                    for p in pens]
+            c, p = min(vals)
+            if key in cache and cache[key][0] < c:
+                return cache[key][0]
+            cache[key] = (c, p, pens)
+        return cache[key][0]
+
+    b = result.best
+    pts = {(h.apex_x, h.apex_y, h.hidden_ccw) for h in result.survivors}
+    for side in (False, True):
+        pts.add((b.apex_x, b.apex_y, side))
+        for k in range(config.ring_dirs):
+            a = 2 * math.pi * k / config.ring_dirs
+            for r in config.ring_radii:
+                pts.add((b.apex_x + r * math.cos(a), b.apex_y + r * math.sin(a), side))
+    for p in pts:
+        cost(*p)
+    dof = max(1, 3 * (len(m.y) - q.shape[1] - 2 * config.n_bins))
+
+    def threshold():
+        best_c = min(v[0] for v in cache.values())
+        birge = best_c / dof
+        return best_c, best_c + float(chi2.ppf(funnel_config.survival_quantile, 3) * max(1.0, birge) * m.correlation)
+
+    best_key = min(cache, key=lambda kk: cache[kk][0])
+    bx, by, bside = best_key
+    pen = (cache[best_key][1],)
+    # fine valley direction (half-line aware)
+    R = config.valley_radius
+
+    def dir_cost(a):
+        return min(cost(bx + R * math.cos(a), by + R * math.sin(a), bside, pen),
+                   cost(bx - R * math.cos(a), by - R * math.sin(a), bside, pen))
+    grid = np.linspace(0, math.pi, config.valley_dirs, endpoint=False)
+    a0 = grid[int(np.argmin([dir_cost(a) for a in grid]))]
+    span = math.pi / config.valley_dirs
+    fine = np.arange(a0 - span, a0 + span + 1e-9, math.radians(config.valley_refine_deg))
+    a_star = fine[int(np.argmin([dir_cost(a) for a in fine]))]
+    valley_rise = dir_cost(a_star) - cache[best_key][0]
+    # walk the valley both ways with lateral re-centring
+    for sgn in (1.0, -1.0):
+        d = np.array([math.cos(a_star), math.sin(a_star)]) * sgn
+        nrm = np.array([-d[1], d[0]])
+        cur = np.array([bx, by], float)
+        t = 0.0
+        while t < config.walk_max:
+            t += config.walk_step
+            nxt = cur + d * config.walk_step
+            cand = [(cost(*(nxt + l * nrm), bside, pen), l) for l in config.walk_lateral]
+            c, l = min(cand)
+            _, thr = threshold()
+            if c > thr:
+                break
+            cur = nxt + l * nrm
+            if abs(l) > 0:                       # keep the walk aimed along the valley's measured course
+                d = (cur - np.array([bx, by])) / np.linalg.norm(cur - np.array([bx, by])) * 1.0
+                nrm = np.array([-d[1], d[0]])
+    best_c, thr = threshold()
+    best_key = min(cache, key=lambda kk: cache[kk][0])
+    bh = FanHypothesis(best_key[0], best_key[1], best_key[2], cache[best_key][1])
+    surv = [kk for kk, v in cache.items() if v[0] <= thr]
+    P = np.array([[x, y] for x, y, _ in surv])
+    if len(P) > 2:
+        ev, evec = np.linalg.eigh(np.cov(P.T))
+        long_axis = float(np.ptp(P @ evec[:, 1])); short_axis = float(np.ptp(P @ evec[:, 0]))
+        pca_dir = evec[:, 1]
+    else:
+        long_axis = short_axis = 0.0; pca_dir = np.array([math.cos(a_star), math.sin(a_star)])
+    _, coefs, _, _ = fan_misfit(bh, m, q, config.n_bins, size, return_fit=True)
+    angles = bin_image_angles(bh, m.xy, config.n_bins, m.block)
+    edges = edge_clusters(bin_contributions(bh, m, q, config.n_bins, size, coefs), angles,
+                          rel=config.edge_rel, gap=config.edge_gap)
+    side_decided = len({s for _, _, s in surv}) == 1
+    lpoint = np.array([bh.apex_x, bh.apex_y])
+    # line direction: the long survivor cloud when the walk mapped one, else the fine valley direction
+    ldir = pca_dir if long_axis > 4 * config.located_px else np.array([math.cos(a_star), math.sin(a_star)])
+    if long_axis <= config.located_px:
+        status = "located" if side_decided else "located-side-undecided"
+        verdict = (f"Corner located at ({bh.apex_x:.0f}, {bh.apex_y:.0f}) px: all {len(surv)} surviving positions "
+                   f"lie within {max(long_axis, 1):.0f} px after {len(cache)} positions were checked, including "
+                   f"the cheapest valley direction (rise {valley_rise:.0f} at {R:.0f} px).")
+    elif short_axis <= config.located_px or (long_axis >= config.line_elongation * short_axis
+                                              and short_axis <= config.line_width_px):
+        status = "on-a-line"
+        verdict = (f"The corner lies on a line through ({bh.apex_x:.0f}, {bh.apex_y:.0f}) px at image angle "
+                   f"{math.degrees(math.atan2(ldir[1], ldir[0])):.0f} deg; surviving positions span "
+                   f"{long_axis:.0f} px along it. One shadow edge fixes a line, not a point.")
+    else:
+        status = "undecided"
+        verdict = (f"The fan is present but the corner is not pinned: {len(surv)} surviving positions span "
+                   f"{long_axis:.0f} x {short_axis:.0f} px.")
+    return Certificate(status, verdict, bh, surv, len(cache), float(thr), float(best_c), long_axis, short_axis,
+                       edges, lpoint, ldir, side_decided, float(valley_rise))
+
+
+def certified_distance_to_line(cert: Certificate, point) -> float:
+    d = np.asarray(point, float) - cert.line_point
+    n = np.array([-cert.line_dir[1], cert.line_dir[0]])
+    return float(abs(d @ n))
